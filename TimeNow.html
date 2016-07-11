@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+	"http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+	<TITLE>Time Zones</TITLE>
+	<SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT">
+	<!-- Hide script from old browsers
+
+	dayName = new Array ("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+
+	function showTheHours(theHour) {
+		if (theHour == 0) {
+			return (12)
+		}
+		if (theHour < 13) {
+			return (theHour)
+		}
+		return (theHour-12)
+	}
+
+	function showZeroFilled(inValue) {
+		if (inValue > 9) {
+			return ":" + inValue
+		}
+		return ":0" + inValue
+	}
+
+	function showAmPm(thatTime) {
+		if (thatTime < 12) {
+			return (" AM ")
+		}
+		return (" PM ")
+	}
+
+	function showTheTime(tzOffset) {
+		thatTZ = new Date
+		dateStr = thatTZ.toGMTString()
+		dateStr = dateStr.substr(0,dateStr.length - 3)
+		thatTZ.setTime(Date.parse(dateStr))
+		thatTZ.setHours(thatTZ.getHours() + tzOffset)
+		
+		return showTheHours(thatTZ.getHours()) + showZeroFilled(thatTZ.getMinutes()) + showAmPm(thatTZ.getHours()) + dayName[thatTZ.getDay()]
+	}
+
+	// End hiding script from old browsers -->
+	</SCRIPT>	
+</HEAD>
+<BODY BGCOLOR="">
+<H1><CENTER> WE WANT MOSHIACH NOW!!! <BR><BR>
+<SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT">
+	<!-- Hide script from old browsers
+
+when=new Date
+cityYear=when.getFullYear()
+cityMonth=when.getMonth()+1
+cityDay=when.getDate()
+cityWkd=when.getDay() +1
+
+
+if(cityMonth>3&&cityMonth<11){saving=1;msaving=0}else{saving=0;msaving=1}
+if(cityMonth==4&&cityWkd>cityDay){saving=0;msaving=1}
+if(cityMonth==10&&cityDay>24&&cityDay-24>=cityWkd){saving=0;msaving=1}
+if (saving==1){dst=" DST";dstm=" "}
+if (saving==0){dst=" ";dstm=" DST"}
+
+
+
+	document.write("<table><tr><td size=30%></td><td size=70%><H2>In London it is now: " + showTheTime(0))
+        document.write("<p><font color='navy'>In Moscow it is now: " + showTheTime(3))
+	document.write("<p><font color='navy'>In Jerusalem it is now: " + showTheTime(1))
+	document.write(" םילשורי</font><p><U>In Winnipeg it is now:</U> " + showTheTime(-6+saving))
+	document.write(dst+"<p>In Melbourne it is now: " + showTheTime(10+msaving)+dstm)
+	document.write("<p>In New York it is now: " + showTheTime(-5+saving))
+	document.write(dst+"<font color='navy'> 770 ונייח תיב</font><p>In Seattle it is now: " + showTheTime(-8+saving)+dst+"</H2></td></tr></table>")
+
+	// End hiding script from old browsers -->
+</SCRIPT>
+</CENTER></H1>
+</BODY>
+</HTML>

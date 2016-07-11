@@ -1,0 +1,166 @@
+<HTML><HEAD><TITLE>EnglishYear</TITLE>
+<style>
+.in {border:0px;  height:0.3in; vertical-align:top; padding:0px}
+a:link {color: white;}
+a:visited {color: black;}
+a:active {color: blue;}
+a:hover {color: red;}
+table {position:center}
+th {border:2px solid silver; height:0.3in}
+td {border:2px solid silver; height:1.5in; width:1.5in; vertical-align:top}
+span {margin-top:0;margin-right:0;margin-left:38px; align:right; vertical-align:top; padding:0px; border:0}
+
+</style>
+<script language="javascript" src="D1051.js"></script>
+<script language="javascript" src="A_txt.txt"></script>
+<SCRIPT language=JavaScript>
+//alert(dOw(3,4,2004))
+
+/*
+
+*/
+var j=0
+var DOC=""
+xux=0
+var xz=""
+uxx=0
+var eyl=2004
+var now= new Date()
+var thisYear = parseInt(now.getFullYear())
+if (now.getMonth() > 10) {thisYear+=1}
+var yyyy = prompt("WHICH ENGLISH YEAR?",thisYear)
+ddd=new Date(yyyy, 00, 01, 00, 00, 00)
+//document.write(yyyy+"<BR>")
+//alert(ddd)
+//alert((ddd.getMonth())+" "+ddd.getDate()+" "+ddd.getFullYear())
+dddH=Dcn(mth(ddd.getMonth()),ddd.getDate(),ddd.getFullYear())
+//alert("***"+dddH)
+xz+=dddH+" "+"<BR>"
+//document.write(xz)
+
+
+xzz=xz.split("-")
+//alert(xzz.length)
+//document.write(xzz[xzz.length-1])
+
+xxzz=(xzz[xzz.length-1]).split(" ")
+//alert(xxzz)
+//alert(xxzz[3]+" "+(xxzz[4])+" "+xxzz[5])
+//document.write(Dcn(xxzz[3],(xxzz[4]+1),xxzz[5]))
+zzz=(Dcn(xxzz[3],(xxzz[4]+1),xxzz[5]))
+xzzz=zzz.split("-")
+//alert(xzzz.length)
+
+//alert(xzzz[0]+" \n"+xzzz[1]+" \n"+xzzz[2]+" \n"+xzzz[3])
+ij=1
+ DOC+="<TABLE BORDER=0 cellspacing=0 align=center  BGCOLOR='white'"+">"
+ DOC+="<tr><th COLSPAN=7 align=center>- Calendar With Hebrew Dates For "+xxzz[5]+" -<th></tr><tr>"
+ DOC+="<th colspan=7>January "+xxzz[5]+"</th></tr><tr>"
+for (ik=1;ik<8;ik++){
+DOC+="<th>"+day(ik)+"</th>"
+}
+
+DOC+="</tr><tr>"
+
+
+if(xxzz[5]%4==0 && xxzz[5]%100!=0 || xxzz[5]%400==0){eyl=367}else{eyl=366}
+
+for(i=1;i<eyl;i++){
+//document.write("[Day# "+i+"] "+xzzz[i])
+
+
+
+var x2z3=xzzz[i].split(" ")
+//alert(x2z3)
+//alert(x2z3[6])
+if (i==1){
+ux=x2z3[6].split("<BR>")
+xux=Hdn(ux[0])
+//alert(i)
+//alert(ux[0]+" "+ xux)
+for (tbl=1;tbl<xux;tbl++){
+	if(tbl<Hdn(ux[0])){
+	DOC+="<td>"+"-".fontcolor('white')+"</td>"}
+//else{}
+}
+}
+//DOC+="<td>"
+if(x2z3[1]=="I"||x2z3[1]=="II"){
+j=x2z3[5]
+ji=x2z3[4]
+if(ij!=ji){
+//DOC+="</td>"
+DOC+="</tr><tr><th colspan=7>"+mth(x2z3[4]-1)+"  "+xxzz[5]+"</th></tr><tr>"
+for (ik=1;ik<8;ik++){
+DOC+="<th>"+day(ik)+"</th>"
+}
+DOC+="</tr><tr>"
+//empty=((i+xux)%7)
+empty=((i+xux)%7)>0?((i+xux)%7):7
+//alert(empty)
+for (tbl=1;tbl<(empty-1>0?empty-1:8-empty);tbl++){
+DOC+="<td>"+"-".fontcolor('white')+"</td>"
+}
+}
+DOC+="<td><TABLE class=in BORDER=0 cellspacing=0 BGCOLOR='white'"+">"+"<tr class=in><td class=in align=left>"+x2z3[5].fontsize('6')+"-".fontcolor('white')+"</td><td class=in align=right>"+(x2z3[0]+x2z3[1])+"-".fontcolor('white')+(x2z3[2])+"</td></tr></table>"
+dowx=dOw(parseInt(x2z3[4]),parseInt(x2z3[5]),parseInt(xxzz[5]))
+DOC+=notice(parseInt(xxzz[5]),parseInt(x2z3[4]),parseInt(x2z3[5])).fontcolor('red').fontsize('1')
+//alert('day='+dowx)
+//alert(dOw(x2z3[3],x2z3[4],xxzz[5]))
+//alert(x2z3[4]+" "+x2z3[5]+" "+xxzz[5])
+//for(i=0;i<8;i++){alert("this"+i+"="+x2z3[i])}
+//alert((x2z3[0]+x2z3[1]))
+//alert((x2z3[0]+x2z3[1])+" "+parseInt(x2z3[2])+" "+SY+" "+parseInt(dowx))
+//alert(YomTov((x2z3[0]+x2z3[1]),parseInt(x2z3[2]),SY,parseInt(dowx)))
+DOC+=(YomTov((x2z3[0]+x2z3[1]),parseInt(x2z3[2]),SY,parseInt(dowx),x2z3[3])).fontcolor('gray').fontsize('1')
+//DOC+="<td>"+(mth(x2z3[4]-1)+" "+x2z3[5]+"<BR>"+HbM(x2z3[0]+x2z3[1])+" "+(hbNu(x2z3[2])+"<BR>")
+//document.write(x2z3[4]+" "+x2z3[5]+" "+HbM(x2z3[0]+x2z3[1])+" "+hbNu(x2z3[2])+"<BR>")
+}else{
+j=x2z3[4]
+ji=x2z3[3]
+if(ij!=ji){
+//DOC+="</td>"
+DOC+="</tr><tr><th colspan=7>"+mth(x2z3[3]-1)+"  "+xxzz[5]+"</th></tr><tr>"
+for (ik=1;ik<8;ik++){
+DOC+="<th>"+day(ik)+"</th>"
+}
+DOC+="</tr><tr>"
+empty=((i+xux)%7)>0?((i+xux)%7):7
+//alert(empty)
+for (tbl=1;tbl<(empty-1>0?empty-1:8-empty);tbl++){
+DOC+="<td>"+"-".fontcolor('white')+"</td>"
+}
+}
+DOC+="<td><TABLE class=in BORDER=0 cellspacing=0 BGCOLOR='white'"+">"+"<tr class=in><td class=in align=left>"+x2z3[4].fontsize('6')+"-".fontcolor('white')+"</td><td class=in align=right>"+(x2z3[0])+"-".fontcolor('white')+(x2z3[1])+"</td></tr></table>"
+dowx=dOw((parseInt(x2z3[3])),parseInt(x2z3[4]),parseInt(xxzz[5]))
+DOC+=notice(parseInt(xxzz[5]),parseInt(x2z3[3]),parseInt(x2z3[4])).fontcolor('red').fontsize('1')
+//alert(" "+(xxzz[5])+" "+(x2z3[3])+" "+(x2z3[4]))
+//alert(dOw(x2z3[3],x2z3[4]-1,xxzz[5]))
+//alert(x2z3[3]+" "+x2z3[4]+" "+xxzz[5])
+//if(x2z3[0]=="Adar"&&(x2z3[1]==11||x2z3[1]==12||x2z3[1]==13)){alert(dowx);alert(parseInt(x2z3[3])+" "+(x2z3[4])+" "+xxzz[5])}
+DOC+=(YomTov(x2z3[0],x2z3[1],SY,(parseInt(dowx)),x2z3[2])+"<BR>").fontcolor('gray').fontsize('1')
+//alert(YomTov(x2z3[0],x2z3[1],SY,(parseInt(dowx)),x2z3[2]))
+//DOC+="<td>"+(mth(x2z3[3]-1)+" "+x2z3[4]+"<BR>"+HbM(x2z3[0])+" "+hbNu(x2z3[1])+"<BR>")
+//document.write(x2z3[3]+" "+x2z3[4]+" "+HbM(x2z3[0])+" "+hbNu(x2z3[1])+"<BR>")
+
+
+}
+
+
+
+
+
+//alert(parseInt(j)+xux)
+//if((parseInt(j)+xux)%7==1){
+if((i+xux)%7==1){
+	DOC+="</tr><tr>"
+		}
+ij=ji
+
+}
+document.write(DOC)
+
+function ID3(){
+alert("Notice for Calendar Program \n\nIf you want to copy \nany part of this program \nor the entire program \nfor your own use or as \na gift to a friend \nplease send $7.70 \n(seven dollars and seventy \ncents) to \n\nRabbi Y. Charytan \n770 Beecher ave.\nWinnipeg MB \nCanada R2V 4R5")}
+
+</SCRIPT><BODY onunload="ID3()"></BODY></HTML>

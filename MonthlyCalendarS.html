@@ -1,0 +1,1487 @@
+<HTML>
+<HEAD>
+<TITLE>
+Monthly Calendar 
+</TITLE>
+<script language="javascript" src="clock.js"></script>
+<script language="javascript" src="astro.js"></script>
+<script language="javascript" src="degrees.js"></script>
+<script language="javascript" src="sun.js"></script>
+<script language="javascript" src="motzishb.js"></script>
+<script language="javascript" src="insertP.js"></script>
+<SCRIPT language = "JavaScript">
+
+//
+//function clikF(x){
+// var "January","February","March","April","May","June","July","August","September","October","November","December"
+//window.top.Frame2.location.href=("#"+x)
+//}
+//
+
+D=new Array()
+var sdtxt=""
+var hbYr = 1 * hbYr
+var kYr = 1 * kYr
+var  c0 = 0
+ var  H0 = 0
+ var  d0 = 0
+var  hc0 = 0
+var  dh0 = 0
+var ii=1
+var spC="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+var nMthflg=true
+var nrowflg=true
+var hbM =""
+var hbD =0
+var sctr=0
+var sedra=""
+var prkctr=0
+var prkflg=""
+var Prkdiff=0
+var dbl=999
+var cndlFlg=0
+
+city=window.top.Frame1.document.cityFRM.cityP.value
+cityLa=eval(window.top.Frame1.document.cityFRM.Lat.value)
+ cityLo=eval(window.top.Frame1.document.cityFRM.Lon.value)
+ timezone=eval(window.top.Frame1.document.cityFRM.Zone.value)
+
+var SidraMo383 = new Array ("Vayeilech","Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas-Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+var SidraMo385 = new Array ("Vayeilech","Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim")
+var SidraTu384 = new Array ("Vayeilech","Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim")
+var SidraTh383 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos","Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim")
+var SidraTh385 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos","Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+var SidraSh383 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+var SidraSh385 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria","Metzora","Achrei","Kedoshim","Emor","Behar","Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas-Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+
+var SidraMo353 = new Array ("Vayeilech","Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel-Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+var SidraMo355 = new Array ("Vayeilech","Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel-Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas-Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+var SidraTu354 = new Array ("Vayeilech","Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel-Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas-Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+var SidraTh354 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel-Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim")
+var SidraTh355 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel","Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim")
+var SidraSh353 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel-Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim")
+var SidraSh355 = new Array ("Ha'Azinu","Bereshis","Noach","Lech-Lecha","Vayera","Chayei Sara","Toldos","Vayetzei","Vayishlach","Vayeshev","Miketz","Vayigash","Vayechi","Shemos","Vaera","Bo","Beshalach Shirah","Yisro","Mishpatim","Terumah","Tetzaveh","Ki Sisa","Vayakhel-Pekudei","Vayikra","Tzav","Shmini","Sazria-Metzora","Achrei-Kedoshim","Emor","Behar-Bechukosai","Bamidbar","Nasso","Beha'aloscha","Sh'lach","Korach","Chukas","Balak","Pinchas","Matos-Masei","Devarim Chazon","Vaeschanan  Nachmu","Eikev","Re'eh","Shoftim","Ki Seitzei","Ki Savo","Nitzavim-Vayeilech")
+
+function cdL(Myr, Mmo, i){
+var when=new Date(Myr, Mmo-1, i, 00, 00, 00)
+
+//city='Seattle'
+//cityLa=47.60
+//cityLo=-122.333
+//timezone=-8
+cityYear=when.getFullYear()
+cityMonth=when.getMonth()+1
+cityDay=when.getDate()
+cityWkd=when.getDay()+1
+
+if(cityMonth>3&&cityMonth<11){saving=1.0}else{saving=0.0}
+if(cityMonth==4&&cityWkd>cityDay){saving=0.0}
+if(cityMonth==10&&cityDay>24&&cityDay-24>=cityWkd){saving=0.0}
+XXX=(SunRiseSet(cityYear,cityMonth,cityDay,cityLa,cityLo))
+cndlstr=hmstring((XXX[1]-18.0/60)+timezone-12.0+saving).fontsize('2')+"pm"
+
+return cndlstr
+}
+
+function cdLH(Myr, Mmo, i){
+var when=new Date(Myr, Mmo-1, i, 00, 00, 00)
+
+
+
+//city='Seattle'
+//cityLa=47.60
+//cityLo=-122.333
+//timezone=-8
+cityYear=when.getFullYear()
+cityMonth=when.getMonth()+1
+cityDay=when.getDate()
+cityWkd=when.getDay()+1
+
+if(cityMonth>3&&cityMonth<11){saving=1.0}else{saving=0.0}
+if(cityMonth==4&&cityWkd>cityDay){saving=0.0}
+if(cityMonth==10&&cityDay>24&&cityDay-24>=cityWkd){saving=0.0}
+XXX=(SunRiseSetH(cityYear,cityMonth,cityDay,cityLa,cityLo))
+cndlstrh=hmstring((XXX[1])+timezone-12+saving).fontsize('2')+"pm"
+
+return cndlstrh
+}
+
+tmp=''
+var M = new Array ()
+var N = new Array ()
+
+
+
+
+
+function Reminder(dat, txt) 
+{ 
+   this.dat = dat 
+   this.txt = txt 
+   
+} 
+ 
+
+
+
+
+
+function Idata1(date){
+
+
+tmp=unescape(document.cookie)
+
+
+
+REMINDER=new Reminder()
+REMINDER.dat=date
+
+for(iii=0;iii<20;iii++){
+
+if(iii==0){p=0}else{p=1}
+tmp=tmp.substring(p,tmp.length) //alert("There is No Reminder For "+date);
+subtmp=tmp.search(date)
+if(subtmp==-1){if (iii==0){REMINDER.dat="";REMINDER.txt="";for(iiii=1;iiii<M.length;iiii++){M[iiii]=""};break;}}
+if(subtmp&&subtmp!=-1){
+REMINDER.txt=""
+REMINDER.txt=tmp.substring(subtmp,tmp.length)
+tmp=REMINDER.txt
+
+REMINDER.txt=(REMINDER.txt).substring((REMINDER.txt).indexOf(",")+1,(REMINDER.txt).indexOf("~"))
+M[iii+1]=REMINDER.txt
+
+if(!tmp.search(date)){break;}
+}else{break;}
+
+}
+var text=""
+
+for(iii=1;iii<M.length;iii++){text+=M[iii]}
+REMINDER.txt=text
+
+M[0]=REMINDER.dat
+
+
+return M
+}
+
+
+function mth(m){
+if(m==0){ms="January"}
+if(m==1){ms="February"}
+if(m==2){ms="March"}
+if(m==3){ms="April"}
+if(m==4){ms="May"}
+if(m==5){ms="June"}
+if(m==6){ms="July"}
+if(m==7){ms="August"}
+if(m==8){ms="September"}
+if(m==9){ms="October"}
+if(m==10){ms="November"}
+if(m==11){ms="December"}
+
+return ms
+}
+
+function day(da)
+{
+switch (da) {
+
+case 0:
+da = "Shabbos";
+break;
+case 1:
+da = "Sunday";
+break;
+case 2:
+da = "Monday";
+break;
+case 3:
+da = "Tuesday";
+break;
+case 4:
+da = "Wednesday";
+break;
+case 5:
+da = "Thursday";
+break;
+case 6:
+da = "Friday";
+break;
+case 7:
+da = "Shabbos";
+break;
+}
+ return da
+}
+
+function HBy(EYR){
+return EYR + 3761
+}
+
+
+function koy(hbYr)
+{
+var y = 1 * hbYr;
+var mzr = Math.floor(y/19)
+var k= y % 19;
+var RHsep = 1 * RHsep
+ // return k
+ switch ( k ) {
+
+case 2:
+	kYr = 1;
+        RHsep = 22;
+	addMth = 0;
+	break;
+
+case 5:
+	kYr = 1;
+        RHsep = 18;
+	addMth = 1;
+	break;
+
+case 10:
+	kYr = 1;
+        RHsep = 24;
+	addMth = 3;
+	break;
+
+case 13:
+	kYr = 1;
+        RHsep = 20;
+	addMth = 4;
+	break;
+
+case 16:
+	kYr = 1;
+        RHsep = 16;
+	addMth = 5;
+	break;
+
+case 1:
+	kYr = 2;
+        RHsep = 32;
+	addMth = 0;
+	break;
+
+case 4:
+	kYr = 2;
+        RHsep = 29;
+	addMth = 1;
+	break;
+
+case 7:
+	kYr = 2;
+        RHsep = 27;
+	addMth = 2;
+	break;
+
+
+case 9:
+	kYr = 2;
+        RHsep = 34;
+	addMth = 3;
+	break;
+
+case 12:
+	kYr = 2;
+        RHsep = 30;
+	addMth = 4;
+	break;
+
+case 15:
+	kYr = 2;
+        RHsep = 28;
+	addMth = 5;
+	break;
+
+case 18:
+	kYr = 2;
+        RHsep = 25;
+	addMth = 6;
+	break;
+
+case 3:
+	kYr = 3;
+        RHsep = 11;
+	addMth = 1;
+	break;
+
+case 6:
+	kYr = 3;
+        RHsep = 8;
+	addMth = 2;
+	break;
+
+case 8:
+	kYr = 3;
+        RHsep = 16;
+	addMth = 3;
+	break;
+
+case 11:
+	kYr = 3;
+        RHsep = 12;
+	addMth = 4;
+	break;
+
+case 14:
+	kYr = 3;
+        RHsep = 9;
+	addMth = 5;
+	break;
+
+case 17:
+	kYr = 3;
+        RHsep = 6;
+	addMth = 6;
+	break;
+
+case 0:
+	kYr = 3;
+        RHsep = 14;
+	addMth = 0;
+	break;
+
+	}
+
+    if (kYr == 3) {
+var YrS = "" + "M"
+var MHB = "MEUBERES"
+}
+else
+{ YrS = "P"
+var MHB = "PSHUTA"
+}
+var sp = " "+kYr+"kYr"+" "+RHsep+"RHsep"+" "+k+"k"+" "+addMth+"addMth"+" " + MHB + " " + YrS + " " + mzr
+var koy=sp.split(" "); 
+ return koy  //koy[1]=kYr
+}
+
+
+
+function  machzorShairis(mchz, dmchz, hmchz, cmchz) {
+// initalize  and determine amt of days, hrs, and chalokim
+//in the 19yr cycles till this year from creation
+ cmchz = 595 * mchz    // each 19 year cycle has 2d,16hrs,
+                 //and 595chalokim
+ hmchz = 16 * mchz    // beyond the exact number of weeks
+ dmchz = 2 * mchz
+
+ hcmchz = parseInt(cmchz / 1080)
+ cmchz = cmchz % 1080
+ hmchz = hmchz + hcmchz
+
+ dhmchz = parseInt(hmchz / 24)
+ hmchz = hmchz % 24
+ dmchz = dmchz + dhmchz
+  dmchz = dmchz % 7
+
+return (" "+mchz+"mchz "+ dmchz+"dmchz "+ hmchz+"hmchz "+ cmchz+"cmchz")
+}
+
+
+
+function shairisAdd(d, H, c) {
+
+      hc = Math.floor(c / 1080)
+        c = c % 1080
+              H = H + hc
+                    dh = Math.floor(H / 24)
+                      H = H % 24
+                            d = d + dh
+                              d = d % 7
+shairisadd=(" " + d + " " + H + " " + c)
+shairis=shairisadd.split(" ")
+return (shairis)
+}
+
+
+
+
+
+
+
+
+
+function dOw(m,d,y){
+dWK=0
+if (m <=2){
+m=m+12
+y=y-1
+}
+dayOfWeeK = (d + 2*m + Math.floor(3*(m+1)/5) +y + Math.floor(y/4) - Math.floor(y/100) + Math.floor(y/400) +2 )%7
+return dayOfWeeK
+}
+
+function SRHd(Yhb) {
+var RHsep=0
+var hbcycl = Yhb%19
+switch (hbcycl) {
+
+                    case 1:
+                          RHsep = 32; 
+break;
+                    case 2:
+                          RHsep = 22; 
+break;
+                    case 3:
+                          RHsep = 11; 
+break;
+                    case 4:
+                          RHsep = 29; 
+break;
+                    case 5:
+                          RHsep = 18; 
+break;
+                    case 6:
+                          RHsep = 8; 
+break;
+                    case 7:
+                          RHsep = 27; 
+break;
+                    case 8:
+                          RHsep = 16; 
+break;
+                    case 9:
+                          RHsep = 34; 
+break;
+                    case 10:
+                          RHsep = 24; 
+break;
+                    case 11:
+                          RHsep = 12; 
+break;
+                    case 12:
+                          RHsep = 30; 
+break;
+                    case 13:
+                          RHsep = 20; 
+break;
+                    case 14:
+                          RHsep = 9; 
+break;
+                    case 15:
+                          RHsep = 28; 
+break;
+                    case 16:
+                          RHsep = 16; 
+break;
+                    case 17:
+                          RHsep = 6; 
+break;
+                    case 18:
+                          RHsep = 25; 
+break;
+                    case 0:
+                          RHsep = 14; 
+break;
+}
+
+return RHsep
+}
+
+
+function MT(HByr){
+ var yh0=0
+var yh0k=0
+
+
+yh0=koy(HByr-1) ; 
+yh0k=parseInt(yh0[3]); 
+yh0addMth=parseInt(yh0[4]); 
+var yi=1*yi
+yi= (parseInt(yh0k*12)) + (parseInt(yh0addMth))
+
+var c0=0
+var H0=0
+var d0=0
+
+for(var i=0; i < parseInt(yi); i++){
+
+   c0 +=  793
+    H0 += 12
+     d0 +=  1
+       hc0 = Math.floor(c0 / 1080)
+            c0 = c0 % 1080
+ H0 +=  hc0
+   dh0 = Math.floor(H0 / 24)
+       H0 = H0 % 24
+         d0 += dh0
+           d0 = d0 % 7
+
+}
+
+var d1=0
+var H1=0
+var c1=0
+
+
+
+yhx = machzorShairis(parseInt(yh0[7]),d1,H1,c1)
+            yhxo=yhx.split(" ")
+
+	dy=parseInt(yhxo[2])
+	Hy=parseInt(yhxo[3])
+	cy=parseInt(yhxo[4])
+
+      dyr=d0+dy+2
+	Hyr=H0+Hy+5
+	 cyr=c0+cy+204
+KYR1=koy(HByr)
+var moladTishrei = shairisAdd(dyr,Hyr,cyr)+ "," +parseInt(KYR1[1])
+//document.write("<P>The moladTishrei of "+ HByr+" is "+ moladTishrei)
+return moladTishrei
+}
+
+
+function Dechia1(d,h) {
+	if (h>=18){
+	d = d+1
+	}
+	else {
+	d=d
+	}
+
+return d
+}
+
+function Dechia2(d) {
+	 if (d==1||d==4||d==6) {
+	d=d+1}
+	else {
+	d=d
+	}
+
+return d
+}
+
+function Dechia3(k,d,h,c) {
+	if ((k!=3&&d==3&&h==9&&c>=204)||(k!=3&&d==3&&h>9)){
+	d=5
+	}
+	else {
+	d=d
+	}
+
+return d
+}
+
+function Dechia4(k,d,h,c) {
+	if ((k==2&&d==2&&h==15&&c>=589)||(k==2&&d==2&&h>15)){
+	d=3
+	}
+	else {
+	d=d
+	}
+
+return d
+}
+
+
+function DECH(k,d,h,c){
+d0=d
+
+if (d==3){
+d=Dechia3(k,d,h,c);
+if(d0!=d){d0=99}
+}
+if(d!=5&&d0==2){
+d=Dechia4(k,d,h,c);
+}
+if(d!=3&&d!=5||d0==5||d0==3){
+d=Dechia1(d,h);
+d=Dechia2(d);
+}
+if (d==7){d=0}
+
+return d
+}
+
+
+
+function MK(KYR){ //kind of Jyear M or P
+    if (KYR == 3) {
+
+var YrS = "" + "M"
+var MHB = "MEUBERES"
+}
+else
+{ YrS = "P"
+var MHB = "PSHUTA"}
+return MHB
+}
+
+function RHaug(R,SEPr,eYR){
+while(SEPr!=RH){
+if (dOw(8,SEPr,eYR)==RH){SEPr=SEPr}
+else
+{SEPr=SEPr+1}
+}
+return SEPr
+}
+
+function ml(j,sy){
+switch (j){
+case 0:
+k=30;
+break;
+case 1:
+if(sy!="molei"){k=29}else{k=30};
+break;
+case 2:
+if(sy=="choser"){k=29}else{k=30};
+break;
+case 3:
+k=29;
+break;
+case 4:
+k=30;
+break;
+case 5:
+k=29;
+break;
+case 6:
+k=30;
+break;
+case 7:
+k=29;
+break;
+case 8:
+k=30;
+break;
+case 9:
+k=29;
+break;
+case 10:
+k=30;
+break;
+case 11:
+k=29;
+break;
+}
+return k
+}
+
+
+function mlM(j,sy){
+switch (j){
+case 0:
+k=30;
+break;
+case 1:
+if(sy!="molei"){k=29}else{k=30};
+break;
+case 2:
+if(sy=="choser"){k=29}else{k=30};
+break;
+case 3:
+k=29;
+break;
+case 4:
+k=30;
+break;
+case 5:
+k=30;
+break;
+case 6:
+k=29;
+break;
+case 7:
+k=30;
+break;
+case 8:
+k=29;
+break;
+case 9:
+k=30;
+break;
+case 10:
+k=29;
+break;
+case 11:
+k=30;
+break;
+case 12:
+k=29;
+break;
+}
+return k
+}
+
+
+function DaysLeft(rhY,rhM,rhD,YrL){
+
+d = new Date() ;
+RHd=new Date(rhY, rhM, rhD, 00, 00, 00)    
+diff = d- RHd  
+mtg = new String(diff/86400000)    //calculate days and convert to string
+point=mtg.indexOf(".")    //find the decimal point
+days=mtg.substring(0,point) ; //get just the whole days
+Xdoc="Today is "+ day(d.getDay()+1) + " " +d.getDate()+" "+ mth(d.getMonth()) + " "+d.getFullYear()+" "+ days + " days have passed since  Rosh HaShana"
+Xdoc+=" and there are "+(YrL-days)+" days left until the end of the year "
+
+document.write("<BR> IT IS NOW "+d)
+
+return Xdoc
+}
+
+function YomTov(hbM,hbD,SY){
+ymtv=""
+shfr='<BR><IMG SRC="shofar.gif" WIDTH="60" HEIGHT="20" BORDER="0" ALT="SHOFAR">'
+//YKpr='<BR><IMG SRC="YKpr.gif" WIDTH="32" HEIGHT="48" BORDER="0" ALT="Yom Kippur">'
+succa='<BR><IMG SRC="succa.gif" WIDTH="64" HEIGHT="48" BORDER="0" ALT="Succah">'
+succa2='<IMG SRC="succa.gif" WIDTH="48" HEIGHT="34" BORDER="0" ALT="Succah2">'
+lulav='<IMG SRC="LulavEtrog.gif" WIDTH="24" HEIGHT="48" BORDER="0" ALT="Lulav">'
+torah='<BR><IMG SRC="torah.gif" WIDTH="40" HEIGHT="80" BORDER="0" ALT="Torah">'
+torah2='<BR><IMG SRC="torah.gif" WIDTH="25" HEIGHT="50" BORDER="0" ALT="Torah">'
+grager='<BR><IMG SRC="grager.gif" WIDTH="60" HEIGHT="50" BORDER="0" ALT="grager">'
+matzah1='<BR><IMG SRC="matzah2.gif" WIDTH="40" HEIGHT="40"  BORDER="0" ALT="matzah1">'
+matzah2='<BR><IMG SRC="matzah2.gif" WIDTH="40" HEIGHT="40"  BORDER="0" ALT="matzah2">'
+luchos='<BR><IMG SRC="luchosM.gif" WIDTH="48" HEIGHT="32"  BORDER="0" ALT="Luchos">'
+cndl='<BR><IMG SRC="candle.gif" WIDTH="11" HEIGHT="24" BORDER="0" ALT="Light Candles"><IMG SRC="candle.gif" WIDTH="11" HEIGHT="32" BORDER="0" ALT="i"><IMG SRC="candle.gif" WIDTH="11" HEIGHT="32" BORDER="0" ALT="i">'
+shcnd='<BR><IMG SRC="candle.gif" WIDTH="8" HEIGHT="26" BORDER="0" ALT="Light Candles">'
+cnd='<IMG SRC="candle.gif" WIDTH="8" HEIGHT="18" BORDER="0" ALT="Light Candles">'
+if (hbM=="Tishrei"&&hbD==1){ymtv=((dAy!='Shabbos')?shfr:"")+" Rosh Hashana"+cndl;cndlFlg=2}
+if (hbM=="Tishrei"&&hbD==2){ymtv=shfr+" Rosh Hashana";cndlFlg=3}
+if (hbM=="Tishrei"&&hbD==3&&dAy!="Shabbos"){ymtv=" Tzom Gedalia"}
+if (hbM=="Tishrei"&&hbD==4&&dAy=="Sunday"){ymtv=" Tzom Gedalia"}
+if (hbM=="Tishrei"&&(hbD>2&&hbD<9)&&dAy=="Shabbos"){ymtv=" Shabbos Tshuva"}
+if (hbM=="Tishrei"&&hbD==9){ymtv=" Erev Yom Kippur Kol Nidre"+((dAy!='Friday')?cndl:"");cndlFlg=1}
+if (hbM=="Tishrei"&&hbD==10){ymtv=" Yom Kippur";cndlFlg=3}
+if (hbM=="Tishrei"&&hbD==14){ymtv=" Erev Succos"+((dAy!='Friday')?cndl+((dAy=='Wednesday')?"Eiruv Tavshilin":""):"");cndlFlg=1}
+if (hbM=="Tishrei"&&hbD==15){ymtv=succa+((dAy!='Shabbos')?lulav:'')+" YOM TOV Succos Day 1"+cndl;cndlFlg=2}
+if (hbM=="Tishrei"&&hbD==16){ymtv=succa+((dAy!='Shabbos')?lulav:'')+" YOM TOV Succos Day 2";cndlFlg=3}
+if (hbM=="Tishrei"&&hbD>=17&&hbD<=20){ymtv=succa+((dAy!='Shabbos')?lulav:'')+" Chol Hamoed"}
+if (hbM=="Tishrei"&&hbD==21){ymtv=succa+lulav+" Hoshana Rabba"+((dAy!='Friday')?cndl+torah2+((dAy=='Wednesday')?"Eiruv Tavshilin":""):""+torah2);cndlFlg=1}
+if (hbM=="Tishrei"&&hbD==22){ymtv=succa2+" YIZKOR YOM TOV Shmini Atzeres"+cndl+torah;cndlFlg=2}
+if (hbM=="Tishrei"&&hbD==23){ymtv=" YOM TOV Simchas Torah<MARQUEE BEHAVIOR=ALTERNATE>"+torah+"</MARQUEE>";cndlFlg=3}
+if (hbM=="Tishrei"&&hbD==24){ymtv=" ISRU CHAG"}
+if (hbM=="Kislev"&&hbD==19){ymtv=" YUD TES KISLEV"}
+if (hbM=="Kislev"&&hbD==20){ymtv=" CHOF KISLEV"}
+if (hbM=="Kislev"&&hbD==24){ymtv=" Erev Chanukah 1'st Candle" +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd}
+if (hbM=="Kislev"&&hbD==25){ymtv=" Chanukah 2'nd Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd}
+if (hbM=="Kislev"&&hbD==26){ymtv=" Chanukah 3'rd Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd+cnd}
+if (hbM=="Kislev"&&hbD==27){ymtv=" Chanukah 4'th Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd+cnd+cnd}
+if (hbM=="Kislev"&&hbD==28){ymtv=" Chanukah 5'th Candle at night"+shcnd+cnd+cnd+cnd+cnd+cnd}
+if (hbM=="Kislev"&&hbD==29){ymtv=" Chanukah 6'th Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd+cnd+cnd+cnd+cnd}
+if (hbM=="Kislev"&&hbD==30){ymtv=" Chanukah 7'th Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd+cnd+cnd+cnd+cnd+cnd}
+if (hbM=="Teves"&&hbD==1&&SY!="choser"){ymtv=" Chanukah 8'th Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd+cnd+cnd+cnd+cnd+cnd+cnd}
+if (hbM=="Teves"&&hbD==2&&SY!="choser"){ymtv=" ZOS Chanukah "}
+if (hbM=="Teves"&&hbD==1&&SY=="choser"){ymtv=" Chanukah 7'th Candle " +((dAy!='Friday')?" at night":" before Shabbos candles")+shcnd+cnd+cnd+cnd+cnd+cnd+cnd+cnd}
+if (hbM=="Teves"&&hbD==2&&SY=="choser"){ymtv=" Chanukah 8'th Candle at night"+shcnd+cnd+cnd+cnd+cnd+cnd+cnd+cnd+cnd}
+if (hbM=="Teves"&&hbD==3&&SY=="choser"){ymtv=" Zos Chanukah "}
+if (hbM=="Teves"&&hbD==5){ymtv=" Didon Notzach<BR>Hei Teves"}
+if (hbM=="Teves"&&hbD==10){ymtv=" Assoro B'Teves"}
+if (hbM=="Teves"&&hbD==20){ymtv=" Rambam's Yahrzeit ".fontcolor('orange')}
+if (hbM=="Shvat"&&hbD==10){ymtv=" YUD SHVAT"}
+if (hbM=="Shvat"&&hbD==15){ymtv=" TU B'SHVAT"}
+if (hbM=="Adar"&&hbD==11&&dAy=="Thursday"){ymtv=" FAST OF ESTHER mukdom"}
+if (hbM=="Adar"&&hbD==13&&dAy!="Shabbos"){ymtv=" FAST OF ESTHER"+grager}
+if (hbM=="Adar"&&hbD==14){ymtv=" PURIM"+grager}
+if (hbM=="Adar"&&hbD==15){ymtv=" SHUSHAN PURIM"}
+if (hbM=="AdarI"&&hbD==14){ymtv=" PURIM KOTON"}
+if (hbM=="AdarI"&&hbD==15){ymtv=" SHUSHAN PURIM KOTON"}
+if (hbM=="AdarII"&&hbD==11&&dAy=="Thursday"){ymtv=" FAST OF ESTHER mukdom"}
+if (hbM=="AdarII"&&hbD==13&&dAy!="Shabbos"){ymtv=" FAST OF ESTHER"+grager}
+if (hbM=="AdarII"&&hbD==14){ymtv=" PURIM "+grager}
+if (hbM=="AdarII"&&hbD==15){ymtv=" SHUSHAN PURIM"}
+if (hbM=="Nisan"&&hbD==11){ymtv=" YUD ALEPH NISSAN"}
+if (hbM=="Nisan"&&hbD==14){ymtv=" Erev Pesach 1'st SEDER at night"+matzah1+((dAy!='Friday')?cndl+((dAy=='Wednesday'||dAy=='Thursday')?"Eiruv Tavshilin":""):"");cndlFlg=1}
+if (hbM=="Nisan"&&hbD==15){ymtv=" YOM TOV PESACH 1'st day 2'nd SEDER at night"+matzah1+cndl;cndlFlg=2}
+if (hbM=="Nisan"&&hbD==16){ymtv=" YOM TOV PESACH 2'nd day"+matzah2;cndlFlg=3}
+if (hbM=="Nisan"&&hbD>=17&&hbD<20){ymtv=" Chol Hamoed"+matzah2}
+if (hbM=="Nisan"&&hbD==20){ymtv=" Chol Hamoed"+matzah2+((dAy!='Friday')?cndl+((dAy=='Wednesday'||dAy=='Thursday')?"Eiruv Tavshilin":""):"");cndlFlg=1}
+if (hbM=="Nisan"&&hbD==21){ymtv=" YOM TOV PESACH 7'th day"+matzah2+((dAy!='Friday')?cndl:"");cndlFlg=2}
+if (hbM=="Nisan"&&hbD==22){ymtv=" YOM TOV PESACH 8'th day YIZKOR"+matzah2;cndlFlg=3}
+if (hbM=="Nisan"&&hbD==23){ymtv=" ISRU CHAG"}
+if (hbM=="Iyar"&&hbD==14){ymtv=" PESACH SHEINI"}
+if (hbM=="Iyar"&&hbD==18){ymtv=" LAG B'OMER"}
+if (hbM=="Sivan"&&hbD==5){ymtv=" EREV SHAVUOS"+((dAy!='Friday')?cndl+((dAy=='Wednesday'||dAy=='Thursday')?"Eiruv Tavshilin":""):"");cndlFlg=1}
+if (hbM=="Sivan"&&hbD==6){ymtv=" YOM TOV SHAVUOS 1'st day"+luchos+((dAy!='Friday')?cndl:"");cndlFlg=2}
+if (hbM=="Sivan"&&hbD==7){ymtv=" YOM TOV SHAVUOS 2'nd day YIZKOR"+luchos;cndlFlg=3}
+if (hbM=="Sivan"&&hbD==8){ymtv=" ISRU CHAG"}
+if (hbM=="Tammuz"&&hbD==3){ymtv=" GIMMEL TAMMUZ"}
+if (hbM=="Tammuz"&&(hbD==12||hbD==13)){ymtv=" YUD BEIS-YUD GIMMEL TAMMUZ"}
+if (hbM=="Tammuz"&&hbD==17&&dAy!="Shabbos"){ymtv=" SHIVA OSSOR B'TAMMUZ"}
+if (hbM=="Tammuz"&&hbD==18&&dAy=="Sunday"){ymtv=" SHIVA OSSOR B'TAMMUZ nidche"}
+if (hbM=="Av"&&hbD==9&&dAy!="Shabbos"){ymtv=" TISHA B'AV"}
+if (hbM=="Av"&&hbD==10&&dAy=="Sunday"){ymtv=" TISHA B'AV nidche"}
+if (hbM=="Av"&&hbD==15){ymtv=" CHAMISHO OSSOR B'AV"}
+if (hbM=="Av"&&hbD==20){ymtv=" CHOF AV"}
+if (hbM=="Elul"&&hbD==18){ymtv=" CHAI ELUL "+(String(HBY-5458)+" years since the birth of the B'aal Shem Tov").fontcolor('brown')}
+if (hbM=="Elul"&&hbD==29){ymtv=" EREV ROSH HASHANA "+((dAy!='Friday')?cndl+((dAy=='Wednesday')?"Eiruv Tavshilin":""):"")+(" L'Shana Tova "+(HBY+1)).fontcolor('blue');cndlFlg=1}
+
+if(YomT(hbM,hbD,SY)){ymtv+=YomT(hbM,hbD,SY)}
+
+//ymtv+=YomT(hbM,hbD,SY)
+
+return ymtv
+
+}
+
+function Sefira(hbM,hbD){
+if ((hbM=="Nisan"&&hbD>14)||(hbM=="Iyar")||(hbM=="Sivan"&&hbD<5)){
+return true}
+else{return false}
+}
+
+function Sdr(YL,RH){
+
+if (YL==353&&RH==2){SIDRA=SidraMo353}
+if (YL==355&&RH==2){SIDRA=SidraMo355}
+if (YL==354&&RH==3){SIDRA=SidraTu354}
+if (YL==354&&RH==5){SIDRA=SidraTh354}
+if (YL==355&&RH==5){SIDRA=SidraTh355}
+if (YL==353&&RH==7){SIDRA=SidraSh353}
+if (YL==355&&RH==7){SIDRA=SidraSh355}
+
+
+if (YL==383&&RH==2){SIDRA=SidraMo383}
+if (YL==385&&RH==2){SIDRA=SidraMo385}
+if (YL==384&&RH==3){SIDRA=SidraTu384}
+if (YL==383&&RH==5){SIDRA=SidraTh383}
+if (YL==385&&RH==5){SIDRA=SidraTh385}
+if (YL==383&&RH==7){SIDRA=SidraSh383}
+if (YL==385&&RH==7){SIDRA=SidraSh385}
+
+return SIDRA
+}
+
+function Kvius(YL,RH){
+
+if (YL==353&&RH==2){KVIUS="גחב"}
+if (YL==355&&RH==2){KVIUS="השב"}
+if (YL==354&&RH==3){KVIUS="הכג"}
+if (YL==354&&RH==5){KVIUS="זכה"}
+if (YL==355&&RH==5){KVIUS="אשה"}
+if (YL==353&&RH==7){KVIUS="אחז"}
+if (YL==355&&RH==7){KVIUS="גשז"}
+
+
+if (YL==383&&RH==2){KVIUS="החב"}
+if (YL==385&&RH==2){KVIUS="זשב"}
+if (YL==384&&RH==3){KVIUS="זכג"}
+if (YL==383&&RH==5){KVIUS="אחה"}
+if (YL==385&&RH==5){KVIUS="גשה"}
+if (YL==383&&RH==7){KVIUS="גחז"}
+if (YL==385&&RH==7){KVIUS="השז"}
+
+return KVIUS
+}
+
+/*<style>
+p#months { color:black;border:solid goldenrod;background-color:none;font-size:10px;z-index:1000 }
+</style>
+*/
+
+</SCRIPT>
+
+
+
+</HEAD>
+
+
+<BODY  BGCOLOR="silver"  FONT="ARIAL" LINK="white" onunload="window.top.Frame0.location='Blank2.html'">
+
+<SCRIPT language = JavaScript>
+var uls=""
+//alert(location.search+''+uls)
+if(location.search){
+uls=(unescape(location.search))
+uls=uls.substring(1,uls.length)}
+var now= new Date()
+var thisYear = parseInt(now.getFullYear())
+if (now.getMonth() > 7) {thisYear+=1}
+if(uls!=""){Eyr=uls}else{
+Eyr=window.top.Frame1.document.YearFRM.eYear.value
+//var Eyr = prompt("What year do you want to convert to Hebrew Year?\n e.g. the Hebrew Year starting in the fall of "+(thisYear - 1)+ " is "+(thisYear+3760) , thisYear-1)
+   // Eyr=Ynow-1  
+}
+EYR = parseInt(Eyr)
+if (EYR < 1600){alert("ALL DATES PRIOR TO 1600 MAY NOT BE VALID")}
+ HBY =HBy(EYR);
+			 //starting in September
+
+  moladTishrei=MT(HBY) 
+ mt=moladTishrei.split(",") 
+
+for (i = 1; i < 4;  i++) {
+	mt[i] = parseInt(mt[i])
+}
+
+chlk0=mt[3];Hr0=mt[2];day0=mt[1]
+
+//alert('chlk0='+chlk0+'Hr0='+Hr0+'day0='+day0)
+
+HBY2=HBY+1;
+
+moladTishrei2=MT(HBY2)
+
+mt2=moladTishrei2.split(",")
+
+for (i = 1; i < 4;  i++) {
+	mt2[i] = parseInt(mt2[i])
+}
+
+
+mt[1]=DECH(mt[4],mt[1],mt[2],mt[3])
+mt2[1]=DECH(mt2[4],mt2[1],mt2[2],mt2[3])
+
+
+
+YD=((7-mt[1])+mt2[1])%7
+if(YD==0){YD=7}
+if (mt[4]==3){
+YL=378+YD
+}
+else {
+YL=350+YD
+}
+
+
+
+if (YL==353||YL==383){SY="choser"}
+if (YL==354||YL==384){SY="ksidron"}
+if (YL==355||YL==385){SY="molei"}
+document.write("<P>RoshHashana of "+HBY+"  is on day "+mt[1]+" "+ day(mt[1])+" and is a shana "+MK(mt[4])+" "+SY+" "+YL+" days long")
+
+
+
+SEPrh=SRHd(HBY)
+RH=0; SEPrh0=SEPrh
+if (EYR<1800){SEPrh=SEPrh-2}
+else if (EYR<1800){SEPrh=SEPrh-2}
+else if (EYR<1700){SEPrh=SEPrh-3}
+if (EYR<1582 ){SEPrh=SEPrh-14}
+DaS = dOw(9,SEPrh,EYR);if (DaS==0){DaS=7}
+
+RH=mt[1]
+if (RH==0){RH=7}
+
+	for (i=0;(i)<=(RH-DaS);i++){
+            SEPrh = SEPrh+1 
+}
+if (SEPrh-SEPrh0>=6) {SEPrh=SEPrh0-1}
+var Ssep=" September "
+if (SEPrh>30){SEPrh=SEPrh-30; Ssep=" October "}
+if (SEPrh<=0){SEPrh=31+SEPrh; Ssep=" August "}
+
+Mrh=9; if (Ssep !=" September "){Mrh=10}
+if (Ssep ==" August "){Mrh=8
+SEPrh=SEPaug(RH,SEPrh,EYR)
+}
+
+
+FD=dOw(Mrh,SEPrh,EYR);if (FD==0){FD=7}
+if (FD!=RH){
+SEPrhO=SEPrh
+SEPrh=SEPrh-1}
+//SEPrh=SEPrh+(RH-FD)
+//if ((SEPrhO-SEPrh)==1){SEPrh=SEPrhO-1}
+FD2=dOw(Mrh,SEPrh,EYR);if (FD2==0){FD2=7}
+if (FD2!=RH){
+SEPrh=SEPrhO+1}
+if (SEPrh==0){Mrh=9;Ssep =" September ";SEPrh=30}
+
+var kvia=Kvius(YL,RH)
+
+document.write("<BR>RoshHashana of "+HBY+" falls on "+ day(mt[1])+Ssep+SEPrh+", "+EYR+"<BR> and is a shana "+MK(mt[4])+" "+SY+" "+YL+" days long"+" and the kvius is "+kvia)
+
+//document.write(DaysLeft(EYR, (Mrh-1), SEPrh,YL)+" "+HBY)
+//DaysLeft(rhY,rhM,rhD)
+
+
+weekdays = new Array("Sunday","Monday","Tuesday","Wednesday",
+ "Thursday","Friday","Shabbos")
+
+
+
+if(YL<=355){
+YJ=new Array("Tishrei","Cheshvan","Kislev","Teves","Shvat","Adar","Nisan","Iyar","Sivan","Tammuz","Av","Elul")
+}
+else{
+YJ=new Array("Tishrei","Cheshvan","Kislev","Teves","Shvat","AdarI","AdarII","Nisan","Iyar","Sivan","Tammuz","Av","Elul")
+}
+ 
+//********FIND THE MONTHLY MOLAD*********
+mldtxt=new Array()
+for(var i=0; i <YJ.length; i++){
+
+if (i==0) {m0=Math.floor(chlk0 / 18)
+			cC0=chlk0 % 18
+Day0=day0;Hr=Hr0
+
+if(Hr<6){if(Day0>0){Day0-=1}else{Day0=6};Hr+=6;ntda="PM"}
+else if(Hr==6){Hr+=6;ntda="AM"}
+else if(Hr>6&&Hr<18){Hr-=6;ntda="AM"}
+else if(Hr==18){Hr-=6;ntda="PM"}
+else if(Hr>18&&Hr<24){Hr-=18;ntda="PM"}
+mldtxt[i]=("The molad of "+YJ[i]+" is "+ day(Day0) + ", " +m0+" min and " + cC0+" chalokim after "+ Hr + " "+ntda)
+
+}else{
+   chlk0 +=  793
+    Hr0 += 12
+     day0 +=  1
+       hc0 = Math.floor(chlk0 / 1080)
+            chlk0 = chlk0 % 1080
+		m0=Math.floor(chlk0 / 18)
+			cC0=chlk0 % 18
+
+ Hr0 +=  hc0
+   dh0 = Math.floor(Hr0 / 24)
+       Hr0 = Hr0 % 24
+         day0 += dh0
+           day0 = day0 % 7
+Day0=day0;Hr=Hr0
+
+if(Hr<6){if(Day0>0){Day0-=1}else{Day0=6};Hr+=6;ntda="PM"}
+else if(Hr==6){Hr+=6;ntda="AM"}
+else if(Hr>6&&Hr<18){Hr-=6;ntda="AM"}
+else if(Hr==18){Hr-=6;ntda="PM"}
+else if(Hr>18&&Hr<=23){Hr-=18;ntda="PM"}
+mldtxt[i]=("The molad of "+YJ[i]+" is "+ day(Day0) + ", " +m0+" min and " + cC0+" chalokim after "+ Hr +" "+ ntda)
+//alert(mldtxt[i])
+}
+}
+//********END FIND MOLAD*** 
+
+
+
+
+Sidra=Sdr(YL,RH)
+i=1;day1=mt[1]
+document.write("<BR><CENTER><H1><FONT color='#0000ff' face='arial' <BR><BR>Jewish Calendar For "+HBY+"  ("+EYR+"-"+(EYR+1)+")</FONT><BR><H5></CENTER>")
+
+
+
+for (j=0;j<YJ.length;j++){
+if(YL<=355){doM=ml(j,SY)}else{doM=mlM(j,SY)}
+
+
+
+for (mthlgth=1;mthlgth<=doM;mthlgth++){
+
+var Dd=""
+
+			cal="<BR>"
+
+RHdate= new Date(EYR, (Mrh-1), SEPrh++, 00, 00, 00)
+if(mthlgth==30||mthlgth==1&&i>1){rChdsh=" Rosh Chodesh "+((mthlgth==30)?YJ[j+1]:YJ[j])}
+else{rChdsh=" "}
+Dd+=mth(RHdate.getMonth())+","+RHdate.getDate()+","+RHdate.getFullYear()+","
+dAy=day(((day1)++)%7)
+
+if (i==1){
+
+}
+cal+=(String(i++)).fontcolor('white')+" "+RHdate.getDate()+" "
+if(dAy!="Shabbos"){
+cal+= "  "+ dAy 
+sedra=""
+ if(dAy=="Friday"){sedra+='<BR><IMG SRC="candle.gif" WIDTH="11" HEIGHT="24" BORDER="0" ALT="i"><IMG SRC="candle.gif" WIDTH="11" HEIGHT="32" BORDER="0" ALT="i"><IMG SRC="candle.gif" WIDTH="11" HEIGHT="32" BORDER="0" ALT="i">'}
+}else
+{cal+="  <FONT COLOR='#FF0000' FACE='ARIAL' >"
+cal+= dAy +" "+"</FONT>"
+if(!((YJ[j]=="Tishrei"&&mthlgth==1)||(YJ[j]=="Tishrei"&&mthlgth==2)||(YJ[j]=="Tishrei"&&mthlgth==10)||((YJ[j]=="Tishrei"&&mthlgth>=15)&&(YJ[j]=="Tishrei"&&mthlgth<=23))||((YJ[j]=="Nisan"&&mthlgth>=15)&&(YJ[j]=="Nisan"&&mthlgth<=22))||(YJ[j]=="Sivan"&&mthlgth==6)||(YJ[j]=="Sivan"&&mthlgth==7))){
+//******GET SEDRA and Special Parshios**
+sedra=Sidra[sctr].fontcolor('blackcherry')
+if (((YJ[j]=="Shvat"&&YL<=355)||YJ[j]=="AdarI")&&(mthlgth>24)||(YJ[j]=="Adar"||YJ[j]=="AdarII")&&(mthlgth==1)){sedra+=" Parshas Shkalim "}
+if ((YJ[j]=="Adar"||YJ[j]=="AdarII")&&(mthlgth>7&&mthlgth<14)){sedra+=" Parshas Zachor "}
+if ((YJ[j]=="Adar"||YJ[j]=="AdarII")&&(mthlgth>16&&mthlgth<24)){sedra+=" Parshas Parah "}
+if ((YJ[j]=="Adar"||YJ[j]=="AdarII")&&(mthlgth>24)||(YJ[j]=="Nisan")&&(mthlgth==1)){sedra+=" Parshas HaChodesh "}
+if ((YJ[j]=="Nisan")&&(mthlgth>7&&mthlgth<15)){sedra+=" Shabbos HaGodol "}
+if (mthlgth>22&&YJ[j+1]&&mthlgth<30){sedra+=("</b><FONT SIZE=1> mevorchim "+YJ[j+1]+"</FONT>")}
+
+Prkdiff=((Sidra.length)-(sctr))
+if(prkflg==""){
+if (((YL<=355&&j==6&&mthlgth>22)||(YL<=355&&j>6))&&!(YJ[j]=="Av"&&(mthlgth==8||mthlgth==9))) //&&(Sidra[sctr]!="Devarim Chazon"))
+{
+prkctr++
+sedra+="</b><FONT SIZE=1><BR>Perek "+prkctr+"</FONT>"}
+if (((YL>355&&j==7&&mthlgth>22)||(YL>355&&j>7))&&!(YJ[j]=="Av"&&(mthlgth==8||mthlgth==9)))
+{
+prkctr++
+sedra+="</b><FONT SIZE=1><BR>Perek "+prkctr+"</FONT>"}
+if(prkctr==6){prkctr=0
+
+if(Prkdiff==5){prkflg="end5"}
+if(Prkdiff==4){prkflg="end4"}
+if(Prkdiff==3){prkflg="end3"}
+if(Prkdiff==2){prkflg="end2"}
+if(Prkdiff==1){prkflg="end1"}
+
+var sctr1=sctr
+}
+
+}
+
+if(sctr1<sctr){
+if(prkflg=="end2"){
+
+prkctr++
+sedra+="</b><FONT SIZE=1><BR>Perek "+prkctr+"</FONT>"
+for(n=1;n<6;n++){
+prkctr++
+sedra+="</b><FONT SIZE=1> & "+prkctr+"</FONT>"}
+}
+if(prkflg=="end3"){
+prkctr++
+sedra+="</b><FONT SIZE=1><BR>Perek "+prkctr+"</FONT>"
+for(n=1;n<3;n++){
+prkctr++
+sedra+="</b><FONT SIZE=1> & "+prkctr+"</FONT>"}
+}
+
+if(prkflg=="end4"){
+prkctr++
+sedra+="</b><FONT SIZE=1><BR>Perek "+prkctr+"</FONT>"
+prkctr++
+sedra+="</b><FONT SIZE=1> & "+prkctr+"</FONT>"
+}
+
+if(prkflg=="end5"){
+prkctr++
+sedra+="</b><FONT SIZE=1><BR>Perek "+prkctr+"</FONT>"
+if(prkctr>2){
+prkctr++
+sedra+="</b><FONT SIZE=1> & "+prkctr+"</FONT>"
+}
+}
+
+}
+sctr++}else{sedra=""}
+
+}
+
+cal+="   "+YJ[j]+" "+mthlgth+" "+HBY  //+"      (" + (RHdate.getMonth()+1)
+Dd+=dAy+","+YJ[j]+","+mthlgth+","+HBY
+if (RHdate.getDate()==1){
+
+}
+
+cal+="<FONT COLOR='#FF0000' FACE='ARIAL' >"
+cal+=" "+YomTov(YJ[j],mthlgth,SY)+" "+ rChdsh+"</FONT>"
+
+//REMINDERS**
+
+sdate=mth(RHdate.getMonth())+" "+RHdate.getDate()+" "+RHdate.getFullYear()
+
+ ssdt=Idata1(sdate)
+
+
+
+if(ssdt[0]==sdate){
+var sdtxt=""
+document.linkColor="red"
+for(l=1;l<ssdt.length;l++){sdtxt+=ssdt[l]}
+sdtxt=sdtxt.substring(0,36)
+sdtxt=sdtxt.link("Reminder.html?"+sdate)
+
+}else{sdtxt=("[ ]".fontcolor("EEEEEE")).link("Reminder.html?"+sdate)}
+//}else{sdtxt=("[ ]".fontcolor("EEEEEE")).link("window.top.Frame1.document.link[3].click")}//(Reminder.html?'+sdate)")}
+//END*
+
+
+
+Dd+=","+YomTov(YJ[j],mthlgth,SY)+","+ rChdsh+" "+sdtxt+" "+sedra+","
+
+if (Sefira(YJ[j],mthlgth)){  
+
+Omer=(" Omer "+ii+" tonight") //.fontcolor('purple')
+ii+=1}
+else {Omer= " "}
+
+
+
+FF='<FONT  FACE="ARIAL" SIZE="1">'
+FF2="</FONT>"
+cal+= FF+Omer+FF2
+
+if(dAy=="Friday"){Omer+=" candlighting "+ cdL(RHdate.getFullYear(),RHdate.getMonth()+1,RHdate.getDate())}
+if (cndlFlg==1&&dAy!="Friday"&&dAy!="Shabbos"){Omer+=" candlighting "+  cdL(RHdate.getFullYear(),RHdate.getMonth()+1,RHdate.getDate())}
+if (dAy=="Shabbos"&&cndlFlg!=2){Omer+=" havdala "+ cdLH(RHdate.getFullYear(),RHdate.getMonth()+1,RHdate.getDate())}
+
+if (cndlFlg==2&&dAy!="Friday"){Omer+=" candlighting "+  cdLH(RHdate.getFullYear(),RHdate.getMonth()+1,RHdate.getDate())}
+if (cndlFlg==3&&dAy!="Friday"&&dAy!="Shabbos"){Omer+=" havdala "+ cdLH(RHdate.getFullYear(),RHdate.getMonth()+1,RHdate.getDate())}
+cndlFlg=0
+
+
+
+Dd+=Omer
+
+
+if(j<YJ.length-1){Dd+=(","+YJ[j+1])}else{Dd+=", - "}
+D[(i-1)]=Dd
+
+}
+}
+
+function wrtFrm3(){
+
+window.top.Frame0.document.clear()
+window.top.Frame0.document.open()
+
+window.top.Frame0.document.write("<BODY BGCOLOR='silver' alink='blue' vlink='navy'>")
+
+window.top.Frame0.document.write(" ")
+
+for(i=0;i<(YJ.length);i++){
+
+window.top.Frame0.document.write(" "+"<FONT SIZE=1><a href='"+"#"+YJ[i]+"' onmouseover="+"'window.top.Frame2.document.links["+(i+12)+"].click()"+"'>"+"["+YJ[i].substring(0,6)+"]</a></FONT>");
+}
+window.top.Frame0.document.write(" ")
+for(i=0;i<12;i++){
+
+window.top.Frame0.document.write(" "+"<FONT SIZE=1><a href='#"+mth(i)+"' onmouseover="+"'window.top.Frame2.document.links["+i+"].click()"+"'>"+"["+mth(i).substring(0,3)+"]</a></FONT>");
+}
+
+
+window.top.Frame0.document.close()
+
+
+window.top.Frame3.document.clear()
+window.top.Frame3.document.open()
+window.top.Frame3.document.write("<BODY BGCOLOR='silver' alink='blue' vlink='navy'><CENTER>")
+window.top.Frame3.document.write("<TABLE><CENTER><FONT SIZE=1>")
+window.top.Frame3.document.write(" <TR><TD>-"+city+" only- <a href='MonthlyCalendarS.html?"+String(EYR-10)+"' Target='Frame2'>"+String(HBY-10)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-5)+"' Target='Frame2'>"+String(HBY-5)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-4)+"' Target='Frame2'>"+String(HBY-4)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-3)+"' Target='Frame2'>"+String(HBY-3)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-2)+"' Target='Frame2'>"+String(HBY-2)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-1)+"' Target='Frame2'>"+String(HBY-1)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR)+"' Target='Frame2'>"+String(HBY)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+1)+"' Target='Frame2'>"+String(HBY+1)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+2)+"' Target='Frame2'>"+String(HBY+2)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+3)+"' Target='Frame2'>"+String(HBY+3)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+4)+"' Target='Frame2'>"+String(HBY+4)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+5)+"' Target='Frame2'>"+String(HBY+5)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+10)+"' Target='Frame2'>"+String(HBY+10)+"</a></TD></TR>")
+window.top.Frame3.document.write(" <TR><TD>-"+city+" only- <a href='MonthlyCalendarS.html?"+String(EYR-10)+"' Target='Frame2'>"+String(EYR-10)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-5)+"' Target='Frame2'>"+String(EYR-5)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-4)+"' Target='Frame2'>"+String(EYR-4)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-3)+"' Target='Frame2'>"+String(EYR-3)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-2)+"' Target='Frame2'>"+String(EYR-2)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-1)+"' Target='Frame2'>"+String(EYR-1)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR)+"' Target='Frame2'>"+String(EYR)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+1)+"' Target='Frame2'>"+String(EYR+1)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+2)+"' Target='Frame2'>"+String(EYR+2)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+3)+"' Target='Frame2'>"+String(EYR+3)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+4)+"' Target='Frame2'>"+String(EYR+4)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+5)+"' Target='Frame2'>"+String(EYR+5)+"</a> ")
+window.top.Frame3.document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+10)+"' Target='Frame2'>"+String(EYR+10)+"</a> ")
+window.top.Frame3.document.write(" </TD></TR></B><CENTER></TABLE><BR></BODY>")
+
+window.top.Frame3.document.close()
+}
+
+
+//start writing monthly calendar//
+
+
+
+
+function anK(){
+document.write("<CENTER>")
+
+for(i=0;i<12;i++){
+
+document.write(" "+"<FONT SIZE=1><a href='#"+mth(i)+"'>"+"["+mth(i).substring(0,3)+"]</a></FONT>");
+}
+document.write("<BR><BR>")
+for(i=0;i<YJ.length;i++){
+
+document.write(" "+"<FONT SIZE=1><a href='#"+YJ[i]+"'>"+"["+YJ[i].substring(0,6)+"]</a></FONT>");
+}
+
+document.write("<BR><BR></CENTER>")
+}
+
+anK()
+
+var mldctr=0
+
+for (var i=1;i<=YL;i++){
+
+P=String(D[i])
+Q=String(D[i+1])
+ Ds=P.split(",")
+
+if(Q!=""){Dsn=Q.split(",")}else{Dsn=P.split(",")}
+//alert(Ds+" "+Dsn)
+
+
+if (nMthflg==true){
+//now write monthly heading cell  
+nMthflg=false
+if (mldtxt[mldctr]){
+emx="<CENTER><FONT SIZE=1 COLOR='navy'>"+(mldtxt[mldctr])+"</FONT>"
+mldctr++}else{emx="<CENTER>"}
+
+
+emx+="<TABLE BORDER=1 COLS=1 WIDTH='85%'  BGCOLOR='white'><TR><TD ALIGN=CENTER"
+emx+=" COLSPAN=7><FONT SIZE=2><B>"+(Ds[0]).anchor(Ds[0])+spC+Ds[2]+spC+(Ds[6]+spC+(String(Ds[4])).anchor(Ds[4])+"-"+String(Ds[10])).fontcolor('blue')
+emx+="</B></FONT></TD></TR>"
+document.write(emx)
+
+//now write weekdays heading cells
+emx="<TR>"
+
+for (var k=0;k<7;k++) {
+
+
+if(k!=6){
+emx+="<TD ALIGN=CENTER WIDTH=14%><FONT SIZE=1>"+weekdays[k]+"</FONT></TD>"
+}else{
+emx+="<TD ALIGN=CENTER WIDTH=14%><FONT SIZE=1><B>"+(weekdays[k]).fontcolor('red')+"</B></FONT></TD>"
+}
+}
+
+emx+="</TR>"
+document.write(emx) 
+//nMthflg=false
+}
+
+//now write week in month
+if(nrowflg==true){
+
+var wk=new Array()
+for (var j=0;j<7;j++){
+if(j==0||j==6){
+cj="<H6>Times for "+city+" Only</H6>"}else{cj=spC}
+
+if(j==1){
+cj+=" Customize For A Fee <a href='mailto: shliach770@hotmail.com'><IMG SRC='Mail.gif'></a>"}else{cj+=spC}
+
+wk[j]="<TD ALIGN=CENTER VALIGN=TOP WIDTH=14%><FONT SIZE=3>"+spC+"<BR>"+cj+"<BR></FONT></TD>"}
+emx="</TR>"
+
+
+nrowflg=false
+
+}
+if(nrowflg==false){
+var clr=""; var fcl='blue';var fecl='black'
+
+for(var wcount=0;wcount<7;wcount++){Slk=""
+if(wcount==6||(Ds[7]&&!Ds[7].match("orange","i"))){clr=" BGCOLOR='white' ";fcl='red'}else{clr=" BGCOLOR='white' ";fcl='blue'}   
+if(Ds[0]==mth(now.getMonth())&&Ds[1]==now.getDate()&&Ds[2]==now.getFullYear()){Slk=".".anchor('today_anchor');clr=" BGCOLOR='black' ";fcl='lightyellow';fecl='lightyellow'} //CCFFFF
+if(Ds[3]==weekdays[wcount]){wk[wcount]="<TD"+clr+" ALIGN=CENTER VALIGN=TOP WIDTH=14%><FONT SIZE=2><B>"+Ds[1].fontcolor(fecl)+Slk+spC+(Ds[5]).fontcolor(fcl)+"</FONT><FONT SIZE=1>"+"<BR>"+(Ds[8]+"</B><BR>"+Ds[7]).fontcolor(fcl)+"<BR>"+Ds[9].fontcolor(fecl)+"</a></FONT></TD>"
+
+
+
+}
+}
+}
+if(Ds[3]=="Shabbos"||(Dsn[0]!=Ds[0])||i==YL){
+
+
+
+nrowflg=true
+
+
+
+for (var l=0;l<7;l++){
+emx+=wk[l]
+
+if (l==6){emx+="</TR>"}
+
+
+
+}
+
+
+}
+
+
+if(Dsn[0]==Ds[0]){nMthflg=false}else{nMthflg=true;nrowflg==true;emx+="</TABLE>"+"<BR>"}
+
+
+document.write(emx)
+
+}
+
+</SCRIPT>
+
+</TABLE></CENTER>
+<BR>
+<SCRIPT  language =JavaScript>
+document.write("<TABLE><left>")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-5)+"'>"+String(HBY-5)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-4)+"'>"+String(HBY-4)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-3)+"'>"+String(HBY-3)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-2)+"'>"+String(HBY-2)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR-1)+"'>"+String(HBY-1)+"</a> ")
+document.write(" "+String(EYR)+String(HBY)+" ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+1)+"'>"+String(HBY+1)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+2)+"'>"+String(HBY+2)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+3)+"'>"+String(HBY+3)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+4)+"'>"+String(HBY+4)+"</a> ")
+document.write(" <a href='MonthlyCalendarS.html?"+String(EYR+5)+"'>"+String(HBY+5)+"</a> ")
+document.write(" </a></left></TABLE><BR>")
+
+anK()
+/*
+anks="<p id='months'>"
+document.write(anks)
+
+for(i=0;i<12;i++){
+
+document.write(" "+"<a href='#"+mth(i)+"'>"+"["+mth(i).substring(0,3)+"]</a>");
+}
+document.write("<BR><BR>")
+for(i=0;i<YJ.length;i++){
+
+document.write(" "+"<a href='#"+YJ[i]+"'>"+"["+YJ[i].substring(0,6)+"]</a>");
+}
+
+document.write("<BR>")
+
+document.write("</p>")
+
+var monthsElement = document.getElementById( "months")
+
+monthsElement.style.position = "absolute"
+monthsElement.style.top=0
+monthsElement.style.left=100
+monthsElement.style.height="8%"
+monthsElement.style.width="80%"
+*/
+
+
+
+moS="<p>When Moshiach comes and there will again be the Sanhedrin this "
+moS+=" Calendar will be obsolete and the Calendar will be determined "
+moS+="as in the past through witnesses who saw the new moon "
+moS+="(as is the proper mitzvah of the Torah) by the Sanhedrin in the "
+moS+=" Beis Hamikdosh HaShlishi - the Third Beis HaMikdosh.<p>" 
+document.write("<TABLE ALIGN=CENTER BORDER='0' WIDTH=40%>"+moS.small().fontcolor("blackcherry")+"</TABLE>")
+
+moSv="<HR><TABLE ALIGN=CENTER BORDER='0' WIDTH=60%><TR><TD ALIGN=LEFT VALIGN=TOP WIDTH=50% BGCOLOR='black' ><FONT COLOR='lightgreen'><TT><B><SMALL> &copy;Rabbi Y.Y. Charytan<BR> 770 Beecher ave. <BR>Winnipeg Canada <BR>R2V 4R5</FONT></SMALL></TT></TD><TD ALIGN=LEFT VALIGN=TOP WIDTH=50% BGCOLOR='blue'><FONT COLOR='yellow'><TT><B><SMALL>do not copy or reproduce this program without written permission from Rabbi Charytan</FONT></SMALL></TT></TD></TR></TABLE><HR>"
+document.write(moSv)
+
+
+
+if(document.anchors.length==27){
+//if (confirm("Do you wish to go ahead to today's date?\n(today's date is shown with a black background)")){
+document.write("<FONT SIZE=1><a href='#today_anchor'>TODAY</a></FONT><BR>")
+document.links[document.links.length-1].click()
+//}
+}
+
+sttxt= "#####___TIMES___ARE___FOR___THE___CITY___OF___"+city.toUpperCase()+"___"+HBY+"___ONLY___#####"
+
+window.status=sttxt
+
+document.close()
+alert(city+" time \n\nHavdolo time calculated at \n6.5 degrees + 4 minutes \nThis is according to The Alter Rebbe \nby HoRav Avrohom Altein sh'y \nof Winnipeg Manitoba")
+setTimeout('wrtFrm3()', 3000)
+
+
+</SCRIPT>
+<HR>If you would like to have to have <BR>the calendar customized for your city <BR>and your special dates
+we can do <BR>it for you for a small fee. For more <BR>information
+ Email us at <BR><a href="mailto: shliach770@hotmail.com">shliach770@hotmail.com</a></b><HR>
+</BODY>
+</HTML>

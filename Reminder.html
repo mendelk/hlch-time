@@ -1,0 +1,468 @@
+<HTML>
+<HEAD><TITLE>ReminderProgram Testing</TITLE>
+<SCRIPT language=JavaScript>
+
+function mthN(N){
+var m=99
+if(N=="January"){m=0}
+if(N=="February"){m=1}
+if(N=="March"){m=2}
+if(N=="April"){m=3}
+if(N=="May"){m=4}
+if(N=="June"){m=5}
+if(N=="July"){m=6}
+if(N=="August"){m=7}
+if(N=="September"){m=8}
+if(N=="October"){m=9}
+if(N=="November"){m=10}
+if(N=="December"){m=11}
+
+return m
+}
+
+dt=new Date()
+//dtyr=dt.getFullYear()
+//dtmth=dt.getMonth()
+uls1=(unescape(location.href))
+//alert(uls1)
+
+ if(uls1.indexOf("?")>-1){ 
+ uls1=uls1.substring(uls1.indexOf("?")+1,uls1.length)
+//alert(uls1)
+ ul1=uls1.split(" ")
+
+//alert(ul1[2])
+
+dtyr=ul1[2] 
+dtmth=mthN(ul1[0])
+
+}else{
+dtmth=(dt.getMonth())
+dtyr=dt.getFullYear()
+}
+
+
+if(dtmth<8){dtyr-=1}
+
+wry="Back to Calendar".link("MonthlyCalendarR.html?"+dtyr)+" "
+wry2=" Back to Hebrew Months ".link("MonthlyCalendarRh.html?"+dtyr)+" "
+wry150=" Back to 150 City Calendar ".link("MonthlyCalendarRhO.html?"+dtyr)+" "
+//document.write("<B>"+wry+" - "+wry2.fontsize(1)+" - "+wry150+"</B>")
+
+
+tmp=''
+var M = new Array ()
+var N = new Array ()
+var myWindow= new Array ()
+
+function mthL(N,Y)
+{
+if(N=="January"){L=31}
+if(N=="February"){if(Y%4==0 && Y%100!=0 || Y%400==0){L=29}else{L=28}}
+if(N=="March"){L=31}
+if(N=="April"){L=30}
+if(N=="May"){L=31}
+if(N=="June"){L=30}
+if(N=="July"){L=31}
+if(N=="August"){L=31}
+if(N=="September"){L=30}
+if(N=="October"){L=31}
+if(N=="November"){L=30}
+if(N=="December"){L=31}
+return L
+}
+
+function note(N){
+
+for (i=1;i<N.length;i++){
+if(N[i]==""){break;}else{
+newW="<body bgcolor='yellow' text='blue'><font face='kids'><center>"
+newW+=(N[i].length<60)?"<H2>":"<H4>"
+
+newW+=(REMINDER.dat).fontsize('3')+"<BR>#"+i+": PLEASE NOTE<BR>" + N[i].fontcolor('red')+"<BR>"
+//alert(newW)
+wx="tinyWindow"+i
+myWindow[i] = window.open('', wx,'alwaysRaised=1,titlebar=0,scrollbars=0,width=400,height=200'+',screenY='+(i*70)+',screenX='+(i*90))
+if (myWindow[i]){
+myWindow[i].document.write(newW)
+}
+}
+}
+}
+
+
+function notes(N){
+var xN=""
+for (i=1;i<N.length;i++){
+
+
+xN+=N[i]+"<BR>"
+
+}
+alert(xN)
+}
+
+
+
+function cl(M){
+
+for (j=1;j<M.length;j++){k=0
+if(myWindow[j]){
+myWindow[j].close()
+}
+}
+}
+
+
+function mth(m){
+if(m==0){ms="January"}
+if(m==1){ms="February"}
+if(m==2){ms="March"}
+if(m==3){ms="April"}
+if(m==4){ms="May"}
+if(m==5){ms="June"}
+if(m==6){ms="July"}
+if(m==7){ms="August"}
+if(m==8){ms="September"}
+if(m==9){ms="October"}
+if(m==10){ms="November"}
+if(m==11){ms="December"}
+
+return ms
+}
+
+
+
+thisYear=eval(dt.getFullYear())
+//thisMonth=mth(eval(dt.getMonth()))
+thisMonth=(eval(dt.getMonth()))
+thisDate=eval(dt.getDate())
+
+/*
+if(!parent.Frame3.document.datJfrm){parent.Frame1.document.links[10].click()}
+else{x=parent.Frame3.document.datJfrm.Jdat.value)
+
+y=x
+tmp=y.substring(y.indexOf("(")+1,y.indexOf(")"))
+tmp=tmp.split('/')
+alert(mth(tmp[0])+' '+tmp[1]+','+tmp[2])
+*/
+
+function Reminder(dat, txt) 
+{ 
+   this.dat = dat 
+   this.txt = txt 
+   
+} 
+ 
+
+
+function Help(){
+var help=""
+help='REMINDER HELP'
+help+='\n'
+help+="\nWhen the program loads it will display today's date"
+help+="\nand alert you to today's reminders"
+help+="\nTo close all the reminders press the [CloseAllReminders] button"
+help+="\nTo see them again press the [ShowRemindersForThisDATE] button"
+help+="\n"
+help+='\nThe boxes marked Month date and Year can be changed'
+help+='\nto the date you want to write reminders for'
+help+='\nWrite the reminder in the [Your Reminder Here] box'
+help+='\nWhen you have finished the message click [AddThisNewReminder]'
+help+='\nYou repeat the process to add more reminders '
+help+='\n'
+help+='\nTO Edit YOUR REMINDERS'
+help+='\n'
+help+='\n In the Edit Box below press the [allRemindersEDIT BOX] button'
+help+='\nYou can edit the date or remider message but Do not remove '
+help+='\nthe "@" the "," or the "~" unless you are deleting an entire'
+help+='\n line (an entire reminder)'
+help+='\nWhen you are done editing press the [Save EDIT BOX] button'
+
+alert(help)
+}
+
+</SCRIPT>
+
+</HEAD>
+
+
+<BODY  BGCOLOR="silver" TEXT="darkblue" FACE="Arial;helvitica" vlink="red" onload="Idata()">
+<SCRIPT language=JavaScript>
+//alert(document.cookie.length)
+if(document.cookie.length>2200){
+alert("You may have too many reminders \nPlease remove some of them \nStart with the outdated ones\nIf you don't the program may \nCRASH very soon!!!")}
+
+var frm=""
+frm+="<FORM name=BirthdayFRM>"
+frm+=" Year<SELECT name=eYear onchange='dom2()' >"
+for(i=2099;i>=1697;i--){
+frm+=" <OPTION VALUE="+i
+if(i==thisYear){frm+="  SELECTED>"+i}else{frm+=" >"+i}
+}
+
+frm+=" </SELECT>"
+
+frm+=" Month <SELECT name=eMonth onchange='dom2()'>"
+frm+=(thisMonth==0)?" <OPTION VALUE='January'  SELECTED>January":" <OPTION VALUE='January'  >January"
+frm+=(thisMonth==1)?" <OPTION VALUE='February'  SELECTED>February":" <OPTION VALUE='February' >February"
+frm+=(thisMonth==2)?" <OPTION VALUE='March'  SELECTED>March":" <OPTION VALUE='March'  >March"
+frm+=(thisMonth==3)?" <OPTION VALUE='April'  SELECTED>April":" <OPTION VALUE='April'  >April"
+frm+=(thisMonth==4)?" <OPTION VALUE='May'  SELECTED>May":" <OPTION VALUE='May'  >May"
+frm+=(thisMonth==5)?" <OPTION VALUE='June'  SELECTED>June":" <OPTION VALUE='June'  >June"
+frm+=(thisMonth==6)?" <OPTION VALUE='July'  SELECTED>July":" <OPTION VALUE='July'  >July"
+frm+=(thisMonth==7)?" <OPTION VALUE='August'  SELECTED>August":" <OPTION VALUE='August'  >August"
+frm+=(thisMonth==8)?" <OPTION VALUE='September'  SELECTED>September":" <OPTION VALUE='September'  >September"
+frm+=(thisMonth==9)?" <OPTION VALUE='October'  SELECTED>October":" <OPTION VALUE='October'  >October"
+frm+=(thisMonth==10)?" <OPTION VALUE='November'  SELECTED>November":" <OPTION VALUE='November'  >November"
+frm+=(thisMonth==11)?" <OPTION VALUE='December'  SELECTED>December":" <OPTION VALUE='December'  >December"
+frm+=" </SELECT>"//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+//frm+="</FORM>"
+
+document.writeln(frm)
+
+var iC=31
+
+
+SLidx=document.BirthdayFRM.eMonth.selectedIndex
+SLmth=document.BirthdayFRM.eMonth[SLidx].value
+
+Yidx=document.BirthdayFRM.eYear.selectedIndex
+SLY=document.BirthdayFRM.eYear[Yidx].value
+
+
+
+
+iC=mthL(SLmth,SLY)
+frm="<FORM>"
+frm+="Date<SELECT name=eMdate > "
+
+for(i=1;i<=iC;i++){
+frm+="<OPTION VALUE="+i
+
+if(i==thisDate){frm+="  SELECTED>"+i}else{frm+=" >"+i}
+
+}
+
+frm+=" </SELECT>"
+
+
+
+
+document.write(frm)
+
+
+
+
+function dom2(){
+SLidx=document.BirthdayFRM.eMonth.selectedIndex
+SLmth=document.BirthdayFRM.eMonth[SLidx].value
+
+Yidx=document.BirthdayFRM.eYear.selectedIndex
+SLY=document.BirthdayFRM.eYear[Yidx].value
+
+iC=mthL(SLmth,SLY)
+document.BirthdayFRM.eMdate.options.length=iC
+
+for(i=27;i<iC;i++){
+document.BirthdayFRM.eMdate.options[i].text=i+1
+
+
+}
+
+}
+
+didx=document.BirthdayFRM.eMdate.selectedIndex
+//SLd=document.BirthdayFRM.eMdate[didx].value
+SLd=didx+1
+
+
+
+
+document.write("<Table Align='CENTER' BORDER='0' CELLSPACING='0' CELLPADDING='0' WIDTH='120%'><TR><TD>&nbsp;</TD><TD>&nbsp;</TD><TD  ALIGN='RIGHT'><INPUT type=text size=1 name=Fnom ></TD></TR></Table>")
+//document.write("<BR>&nbsp; Now Click Here To <INPUT onClick=window.history.go(0);document.BirthdayFRM.Fnom.value=''  type=button name='getHbdatebutton' value='Get Hebrew Date'></FORM><CENTER>") 
+
+
+
+
+fMonth=SLmth
+
+fDate=SLd
+
+fYear=SLY
+</SCRIPT>
+<!--<CENTER><B>REMINDERS </CENTER><FORM NAME= "BirthdayFRM" METHOD=POST ACTION="mailto:abc@123.com" ENCTYPE="text/plain" >
+Month <INPUT TYPE="text" NAME="eMonth" VALUE=" " SIZE=10>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Date<INPUT TYPE="text" NAME="eMdate" VALUE=" " SIZE=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Year<INPUT TYPE="text" NAME="eYear" VALUE=" " SIZE=4>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<INPUT TYPE="button" VALUE="Help?" onClick="Help()">
+<HR>
+<b>your Reminder here</b><INPUT TYPE="text" NAME="email" VALUE="" SIZE=50>
+<BR><CENTER>
+
+<INPUT TYPE="button" VALUE="AddThisNewReminder" onClick="if (!document.cookie){fDate=document.BirthdayFRM.eMdate.selectedIndex+1;document.cookie='@'+fMonth+' '+fDate+' '+fYear +','+document.BirthdayFRM.email.value+'~'+'  ;expires=Wednesday, 1-Apr-2009 22:59:59 GMT'}else{fDate=document.BirthdayFRM.eMdate.selectedIndex+1;document.cookie+=escape('\n@'+fMonth+' '+fDate+' '+fYear +','+ document.BirthdayFRM.email.value+'~')+' ;expires=Wednesday, 1-Apr-2009 22:59:59 GMT'};document.BirthdayFRM.email.value=''">
+</CENTER>
+<!--<INPUT TYPE="button" VALUE="IsThereReminder?" onClick="if (document.cookie){alert('YES!')}else{alert('NO!')}">
+<INPUT TYPE="button" VALUE="ShowAllReminders" onClick="if (document.cookie){alert(unescape(document.cookie))}">
+-->
+<HR>
+<INPUT TYPE="button" VALUE="ShowRemindersForThisDATE" onClick="((navigator.appName != 'Netscape')? cl(M): zzzz=7) ; fDate=document.BirthdayFRM.eMdate.selectedIndex+1;dom2();fMonth=SLmth;fYear=SLY;Idata()">
+<INPUT TYPE="button" VALUE="CloseAllReminders" onClick="cl(M)">
+<HR><H5>To Edit your REMINDERS in the Edit Box below press<BR> the [allRemindersEDIT BOX] button
+ You can edit <BR>the date or remider message but Do not remove the<BR>
+'@' the ',' or the '~' unless you are deleting an entire line (reminder)<BR>
+When you are done editing press the [Save EDIT BOX] button Also do NOT use a ";" in your message
+ it may make your reminders unusable!!<HR>
+<INPUT TYPE="button" VALUE="allRemindersEDIT BOX" onClick="if (document.cookie){document.BirthdayFRM.Tbox.value=Ydata(1)}">
+<INPUT TYPE="button" VALUE="Save EDIT BOX" onClick="document.cookie=escape('ckctr'+'='+Ydata(0)+'*'+document.BirthdayFRM.Tbox.value) + '  ;expires=Wednesday, 1-Apr-2009 22:59:59 GMT'">
+
+<BR><TEXTAREA ROWS=10 COLS=60 NAME="Tbox"  Value=unescape(document.cookie)>
+</TEXTAREA>
+</FORM>
+
+	<SCRIPT LANGUAGE="javascript">
+
+/*
+if (navigator.appName != "Netscape"){
+alert('you are using '+navigator.appName)
+cl(M);
+if(location.search){
+uls=(unescape(location.search))
+uls=uls.substring(1,uls.length)
+*/
+
+//if(location.href){
+uls=(unescape(location.href))
+//alert(uls)
+//alert(uls.indexOf("?"))
+ if(uls.indexOf("?")>-1){ 
+ uls=uls.substring(uls.indexOf("?")+1,uls.length)
+ //alert(uls)
+ ul=uls.split(" ")
+ //alert(2099-document.BirthdayFRM.eYear.selectedIndex)
+document.BirthdayFRM.eYear.selectedIndex=2099-eval(ul[2])
+slu=document.BirthdayFRM.eYear.selectedIndex
+//alert(document.BirthdayFRM.eYear.selectedIndex)
+fYear=document.BirthdayFRM.eYear[slu].value //=eval(ul[2])
+
+//fYear=ul[2] 
+fMonth=ul[0];document.BirthdayFRM.eMonth.selectedIndex=mthN(ul[0]);document.BirthdayFRM.eMonth[mthN(ul[0])].value=ul[0]
+ fDate=ul[1];document.BirthdayFRM.eMdate.selectedIndex=ul[1]-1
+
+}else{
+fMonth=mth(dt.getMonth())
+fDate=dt.getDate()
+fYear=dt.getFullYear()
+}
+var fhYear01=""+(1*fYear-2+3761)
+var ffYear01=""+(1*fYear-2)
+var ffYear0=""+(1*fYear-1)
+var fhYear0=""+(1*fYear-1+3761)
+var ffYear=""+fYear
+var fhYear=""+(1*fYear+3761)
+var ffYear2=""+(1*fYear+1)
+var fhYear2=""+(1*fYear+1+3761)
+var fhYear3=""+(1*fYear+2+3761)
+var ffYear3=""+(1*fYear+2)
+
+
+//date=fMonth+' '+fDate+' '+fYear
+//var dturl= "MonthlyCalendarR.html"+"?"+(fMonth<8)?ffYear-1:ffYear
+//document.write("")
+//wrt=(ffYear+"-1").link("MonthlyCalendarR.html?"+eval(ffYear)-1)
+wry3="Back to Calendar".link("MonthlyCalendarR.html?"+dtyr)+" "
+wry4="Back to Hebrew Month View".link("MonthlyCalendarRh.html?"+dtyr)+" "
+//document.write(wry3+"  ".fontsize(6)+wry4.fontsize(1))
+
+
+wrt=fhYear01.link("MonthlyCalendarR.html?"+ffYear01)+" "
+wrt+=fhYear0.link("MonthlyCalendarR.html?"+ffYear0)+" "
+wrt+=fhYear.link("MonthlyCalendarR.html?"+ffYear)+" "
+wrt+=fhYear2.link("MonthlyCalendarR.html?"+ffYear2)+" "
+wrt+=fhYear3.link("MonthlyCalendarR.html?"+ffYear3)+" "
+wrt+="<br>"
+wrt+=ffYear01.link("MonthlyCalendarR.html?"+ffYear01)+" "
+wrt+=ffYear0.link("MonthlyCalendarR.html?"+ffYear0)+" "
+wrt+=ffYear.link("MonthlyCalendarR.html?"+ffYear)+" "
+wrt+=ffYear2.link("MonthlyCalendarR.html?"+ffYear2)+" "
+wrt+=ffYear3.link("MonthlyCalendarR.html?"+ffYear3)+" "
+
+//document.write("<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>These links are for the Tornto English only Calendar<BR>")
+//document.write(wrt)
+
+function Ydata(z){ 
+var zz=""
+var Y=""
+birthdata =unescape(document.cookie) 
+Y=birthdata
+ctrY=(Y.substring(Y.indexOf("=")+1,Y.indexOf("*")))
+oldY=(Y.substring(Y.indexOf("*")+1,Y.length))
+
+if(z==1) {zz= oldY}else{zz= ctrY}
+
+return zz
+}
+
+
+
+function Idata(){
+
+
+tmp=unescape(document.cookie)
+date=fMonth+' '+fDate+' '+fYear   //"May"
+REMINDER=new Reminder()
+REMINDER.dat=date
+//M[0]=REMINDER.dat
+for(i=0;i<20;i++){
+if(i==0){p=0}else{p=1}
+tmp=tmp.substring(p,tmp.length)
+subtmp=tmp.search(date)
+if(subtmp==-1){if (i==0){alert("There is No Reminder For "+date);REMINDER.dat="";REMINDER.txt="";for(i=1;i<M.length;i++){M[i]=""};break;}}
+if(subtmp&&subtmp!=-1){
+REMINDER.txt=""
+REMINDER.txt=tmp.substring(subtmp,tmp.length)
+tmp=REMINDER.txt
+REMINDER.txt=(REMINDER.txt).substring((REMINDER.txt).indexOf(",")+1,(REMINDER.txt).indexOf("~"))
+M[i+1]=REMINDER.txt
+
+
+//alert(" Reminder #"+(i+1)+"\n for "+ date +"\n"+(REMINDER.txt))
+}else{break;}
+
+}
+var text=""
+if(REMINDER.dat!=""){
+note(M)
+for(i=1;i<M.length;i++){text+=M[i]}
+REMINDER.txt=text
+//alert(REMINDER.txt.length)
+//if(REMINDER.txt.length<1){REMINDER.dat=""}
+
+M[0]=REMINDER.dat
+
+//alert(M)
+//alert(M[0])
+/*
+window.top.Frame3.document.clear()
+window.top.Frame3.document.open()
+window.top.Frame3.document.write('<BODY BGCOLOR="#FAEBD7" TEXT="BLACK" LINK="BLACKCHERRY" VLINK="TEAL" ALINK="#00CCFF">')
+window.top.Frame3.document.write("<B><H5> "+M)
+window.top.Frame3.document.write("</BODY>")
+window.top.Frame3.document.close()
+*/
+//document.write(REMINDER.dat+REMINDER.txt)
+return M}else {return 0}
+}
+
+
+</SCRIPT>
+
+
+
+	
+
+
+
+</BODY></HTML>

@@ -1,0 +1,38 @@
+ArNote= new Array(   // This is the FIRST line
+
+/* ******PLEASE READ******
+ write info below in this order only and in quotes
+ all lines must begin with a quote and end with a quote
+ and a comma must separate the lines from each other 
+ The last line of the notices ends with a quote only
+
+
+      "Year-Month-Day-Note"
+ ,
+ e.g. "2005-1-2-This is your reminder notice"
+
+
+		W A R N I N G 
+
+do not change or remove  the FIRST and LAST lines of this file
+
+**********END OF PLEASE READ****** */
+
+"2005-1-2-This is reminder notice #1"
+,
+
+"2005-1-4-This is my second reminder notice"
+,
+
+"2005-1-7-This is reminder notice #3"
+,
+
+"2005-2-1-Shluchos Convention<br>"
+,
+
+"2005-1-15-hELLO wORLD"
+
+
+
+
+) // This is the LAST line

@@ -1,0 +1,261 @@
+<HTML>
+<HEAD>
+<TITLE>Contents </TITLE>
+<SCRIPT language = JavaScript>
+// Random number generator. If max=3 then function returns 1,2 or 3
+function getRandom(max) {return (Math.floor(Math.random()*max))+1;}
+
+var now= new Date()
+var thisYear = parseInt(now.getFullYear())
+if (now.getMonth() > 7) {thisYear+=1}
+dateString=" "+(thisYear - 1)+"-"+(thisYear)
+
+
+function show3(txt3){
+window.top.Frame3.document.open()
+window.top.Frame3.document.write("<H3>"+txt3)
+//window.status=txt3
+}
+
+function show0(txt0){
+window.top.Frame0.document.open()
+window.top.Frame0.document.write("<BODY TEXT='goldenrod' BGCOLOR='BLACK'><H6>"+txt0)
+//window.status=txt0
+window.top.Frame0.document.close()
+}
+
+function countTimes(){
+
+																																																																																																				txt=1800
+X=unescape(document.cookie)
+//alert(X)
+ctrX=(X.substring(X.indexOf("=")+1,X.indexOf("*")))
+oldX=(X.substring(X.indexOf("*")+1,X.length))
+//alert(oldX)
+//alert(ctrX)
+if (ctrX=="NaN"){ctrX=1}
+ctr=ctrX
+//alert(ctr)
+ctr=ctr*1
+//ctr=0
+ctr++
+
+
+if(ctr>txt){alert("You have already used this program "+txt+""+" times. \nThis Trial version of the Jewish Calendar has EXPIRED\n most functions will not work properly \nemail- shliach770@hotmail.com for insructions")
+//window.top.Frame1.document.close()
+window.top.Frame1.document.open()
+window.top.Frame1.document.write("<H3>This Trial version Calendar has EXPIRED most functions will not work properly email- <a href='mailto: shliach770@hotmail.com'>shliach770@hotmail.com</a> for insructions")
+window.top.Frame2.document.open()
+window.top.Frame2.document.write("<H1>This Trial version Calendar has EXPIRED most functions will not work properly email- <a href='mailto: shliach770@hotmail.com'>shliach770@hotmail.com</a> for insructions")
+
+} 
+else
+{
+show0(" <FONT FACE='ARIAL' SIZE='4'><CENTER>The ChaBaD Halachik Jewish Times Calendar </CENTER><BR>  You have used this program "+ctr+"</FONT>"+((ctr==1)?" time.":" times."))
+}
+//ctr=0
+document.cookie=escape("ckctr"+"="+ctr+"*"+oldX)+" ;expires=Wednesday, 1-Apr-2009 22:59:59 GMT"
+//document.cookie=""
+
+//alert(unescape(document.cookie))
+
+//window.status=" "+txt - ctr+" TIMES LEFT TO TRY THIS PROGRAM "
+// ID2()
+}
+
+
+function ID3(){
+alert("Notice for Calendar Program \n\nIf you want to copy \nany part of this program \nor the entire program \nfor your own use or as \na gift to a friend \nplease send $7.70 \n(seven dollars and seventy \ncents)  to \n\nRabbi Y. Charytan \n770 Beecher ave.\nWinnipeg MB \nCanada R2V 4R5")}
+
+
+function ID2(){
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      X=new Date()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     X2=1070004000000
+if(X<X2){alert("This free trial version \nof the calendar will expire \n"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     +(new Date(1070004000000))+" \n  Email us at: \n\nshliach770@hotmail.com \nfor information on how \nto get the full version")
+
+ }else{alert("This Free Trial Jewish Calendar has EXPIRED most functions will not work properly email- shliach770@hotmail.com for insructions")
+
+window.top.Frame1.document.open()
+window.top.Frame1.document.write("<H3>This Free Trial Calendar has EXPIRED most functions will not work properly email- <a href='mailto: shliach770@hotmail.com'>shliach770@hotmail.com</a> for insructions")
+window.top.Frame2.document.open()
+window.top.Frame2.document.write("<H1>This FREE Trial Calendar has EXPIRED most functions will not work properly email- <a href='mailto: shliach770@hotmail.com'>shliach770@hotmail.com</a> for insructions")
+
+} 
+}
+
+
+function pwrd(){
+																																																																																			Paswrd=String.fromCharCode(55,55,48)
+var okp=false
+var xwrd=(prompt("WHAT IS THE PASSWORD?","Type The Password Here"))
+if(xwrd==Paswrd){okp=true}
+
+
+if(okp==false){alert ("\""+xwrd+"\""+" is the Wrong Password \nPlease close the window NOW!!!\nYou have no permission to continue")}
+} 
+
+
+</SCRIPT>
+</HEAD>
+
+<!--onLoad="ID2()"-->
+<!-- TEXT="navy" LINK="BLACKCHERRY" VLINK="TEAL" ALINK="#00CCFF" onLoad="alert('You Have Permission to use This Program until \n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;October 1, 2002\n\nAfter this date it is FORBIDDEN');ID2();countTimes()" -->
+<BODY BGCOLOR=#FAEBD7 BGPROPERTIES="FIXED"  BACKGROUND='Mnora002s.gif'
+TEXT="navy" LINK="BLACKCHERRY" VLINK="TEAL" ALINK="#00CCFF" onLoad="countTimes()" onUnload="ID3()">
+
+<HR><H4><CENTER>The ChaBaD Halachik Times Calendar</CENTER></H4>
+<TABLE ALIGN="CENTER" BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="80%">
+
+
+<FORM NAME=Dtfrm>
+<INPUT name=todai  value='Click TodaysHalachikTimes'><FONT SIZE="1" color="blue"><CENTER>Today's Date</CENTER></FONT></FORM>
+
+
+<A HREF="HbDate.html" TARGET="Frame3"></A><H6>
+
+
+<CENTER>CHOOSE A CITY</CENTER>
+<SCRIPT language = Javascript>
+//  onLoad="countTimes()" 
+
+var CityAr = new Array ("Winnipeg, 49.883, -97.150, -6","New York,40.717,-74.017,-5","Toronto, 43.650, -79.383, -5","Montreal, 45.517, -73.567, -5","Vancouver, 49.267, -123.117, -8","Seattle, 47.600, -122.333, -8","Addis Ababa, 9.000, 38.833, 3","Albany, 42.650, -73.750, -5","Albuquerque, 35.083, -106.667, -7","Amsterdam, 52.367, 4.900, 1","Anchorage, 61.217, -149.883, -10","Ancona, 43.633, 13.500, 1","Antwerp, 51.217, 4.417, 1","Athens, 37.967, 23.717, 2","Atlanta, 33.750, -84.383, -5","Atlantic City, 39.367, -74.433, -5","Baltimore, 39.283, -76.617, -5","Bangkok, 13.750, 100.517, 7","Barrow, 71.283, -156.783, -10","Beijing, 39.917, 116.417, 8","Belfast, 54.583, -5.917, 0","Berlin, 52.500, 13.400, 1","Bologna, 44.483, 11.333, 1","Bombay, 18.967, 72.833, 6","Boston, 42.350, -71.067, -5","Bridgeport, 41.183, -73.183, -5","Brooklyn, 40.700, -74.000, -5","Brussels, 50.833, 4.333, 1","Bucharest, 44.433, 26.100, 2","Budapest, 47.500, 19.083, 1","Buenos Aires, -34.600, -58.450, -3","Buffalo, 42.900, -78.883, -5","Burlington Vt, 44.483, -73.217, -5","Cairo, 30.050, 31.250, 2","Calgary, 51.050, -114.083, -7","Capetown, -33.917, 18.367, 2","Caracas, 10.500, -66.933, -4","Chapel Hill, 35.917, -79.067, -5","Charleston Sc, 32.800, -79.950, -5","Chicago, 41.883, -87.633, -6","Churchill, 58.783, -94.183, -6","Cincinnati, 39.100, -84.517, -5","Cleveland, 41.500, -81.683, -5","Columbus, 39.950, -83.000, -5","Copenhagen, 55.667, 12.583, 1","Cracow, 50.050, 19.967, 1","Dallas, 32.783, -96.800, -6","Denver, 39.717, -105.017, -7","Detroit, 42.333, -83.050, -5","Dublin, 53.333, -6.250, 0","Edinburgh, 55.950, -3.217, 0","Edmonton, 53.550, -113.467, -7","Fairbanks, 64.850, -147.717, -10","Ferrara, 44.833, 11.583, 1","Flagstaff, 35.200, -111.650, -7","Florence, 43.767, 11.250, 1","Gateshead, 54.967, -1.617, 0","Geneva, 46.200, 6.150, 1","Genova, 44.417, 8.950, 1","Glasgow, 55.883, -4.250, 0","Grand Canyon, 36.050, -112.150, -7","Halifax, 44.650, -63.600, -4","Hartford, 41.767, -72.683, -5","Havana, 23.133, -82.367, -5","Hecla, 51.100, -96.717, -6","Hong Kong, 22.283, 114.150, 8","Honolulu, 21.317, -157.867, -10","Houston, 29.767, -95.367, -6","Imperial, 51.350, -105.400, -6","Indianapolis, 39.767, -86.150, -5","Irkutsk, 52.267, 104.333, 8","Istanbul, 41.017, 28.967, 2","Johannesburg, -26.250, 28.000, 2","Kansas City, 39.117, -94.650, -6","Kiev, 50.433, 30.517, 3","Las Vegas, 36.183, -115.133, -8","Lausanne, 46.517, 6.633, 1","Leningrad, 59.917, 30.250, 3","Lima, -12.050, -77.050, -5","Lisbon, 38.717, -9.133, 1","Little Rock, 34.733, -92.250, -6","Livorno, 43.550, 10.317, 1","London, 51.500, -0.167, 0","Los Angeles, 34.050, -118.250, -8","Louisville, 38.267, -85.750, -5","Lugano, 46.017, 8.967, 1","Madison, 43.083, -89.367, -6","Madrid, 40.400, -3.683, 1","Manchester, 53.500, -2.250, 0","Mantua, 45.150, 10.800, 1","Marseille, 43.300, 5.400, 1","Melbourne, -37.817, 144.967, 10","Memphis, 35.133, -90.050, -6","Merano, 46.667, 11.150, 1","Mexico City, 19.400, -99.150, -6","Miami, 25.767, -80.200, -5","Milan, 45.467, 9.200, 1","Milwaukee, 43.033, -87.917, -6","Minneapolis, 44.983, -93.217, -6","Mobile, 30.700, -88.083, -6","Modena, 44.667, 10.917, 1","Monroe_Tshp_NJ,40.316,-74.416,-5","Monsey, 41.117, -74.067, -5","Montevideo, -34.883, -56.183, -3","Monticello, 41.650, -74.700, -5","Moscow, 55.750, 37.583, 3","Nairobi, -1.283, 36.817, 3","Naples Fl, 26.133, -81.800, -5","Naples It, 40.850, 14.283, 1","Nashville, 36.150, -86.800, -6","New Brunswick, 40.483, -74.450, -5","New Haven, 41.300, -72.933, -5","New Orleans, 29.967, -90.117, -6","Newark, 40.733, -74.167, -5","Newport Ri, 41.217, -71.300, -5","Nice, 43.700, 7.250, 1","Nipawin, 53.367, -104.000, -6","Omaha, 41.267, -95.950, -6","Orlando, 28.533, -81.383, -5","Oslo, 59.917, 10.750, 1","Ottawa, 45.417, -75.700, -5","Padua, 45.417, 11.883, 1","Paris, 48.867, 2.333, 1","Parma, 44.800, 10.333, 1","Philadelphia, 39.950, -75.117, -5","Phoenix, 33.450, -112.083, -7","Pisa, 43.717, 10.383, 1","Pittsburgh, 40.433, -80.000, -5","Portland Me, 43.650, -70.283, -5","Portland Or, 45.550, -122.600, -8","Prague, 50.083, 14.433, 1","Providence, 41.833, -71.417, -5","Quebec, 46.817, -71.233, -5","Ramat Gan, 32.083, 34.817, 2","Rangoon, 16.783, 96.167, 7","Regina, 50.450, -104.617, -6","Rio De Janeiro, -22.900, -43.233, -3","Rome, 41.900, 12.483, 1","Salt Lake City, 40.767, -111.883, -7","San Antonio, 29.467, -98.517, -6","San Diego, 32.717, -117.150, -8","San Francisco, 37.800, -122.400, -8","San Juan Pr, 18.467, -66.117, -4","Santa Fe, 35.700, -106.950, -7","Santiago, -33.450, -70.667, -4","Sao Paulo, -23.533, -46.617, -3","Saskatoon, 52.167, -107.167, -6","Scarsdale Ny, 40.983, -73.817, -5","Seoul, 37.550, 126.967, 9","Shanghai, 31.233, 121.467, 8","Siena, 43.317, 11.350, 1","Singapore, 1.283, 103.850, 8","Soures, 49.633, -100.200, -6","Springfield Ma, 42.117, -72.600, -5","St. Louis, 38.633, -90.183, -6","Stamford, 41.050, -73.533, -5","Stockholm, 59.333, 18.050, 1","Strasbourg, 48.583, 7.750, 1","Sydney, -33.867, 151.217, 10","Tampa, 27.950, -82.450, -5","Tashkent, 41.333, 69.300, 6","Tbilisi, 41.717, 44.817, 3","Teaneck, 40.883, -74.017, -5","Teheran, 35.667, 51.433, 4","Thompson, 55.733, -97.850, -6","Tokyo, 35.700, 139.767, 9","Toulouse, 43.600, 1.433, 1","Trieste, 45.667, 13.767, 1","Tucson, 32.217, -110.967, -7","Turin, 45.050, 7.667, 1","Venice, 45.450, 12.350, 1","Verona, 45.450, 11.000, 1","Vienna, 48.217, 16.333, 1","Warsaw, 52.250, 21.000, 1","Washington DC, 38.900, -77.017, -5","Wichita, 37.683, -97.333, -6","Woodbourne, 41.767, -74.583, -5","Yellowstone, 44.967, -110.700, -7","Zurich, 47.383, 8.533, 1")
+
+
+city="Winnipeg" 
+cityLa=49.883
+cityLo=-97.150
+timezone=-6
+
+
+
+var frm="<TABLE><TR>"
+frm+="<FORM name=cityFRM>"
+frm+=" </TR><TR>&nbsp;&nbsp;<SELECT name=cityF onchange='doit()'>" 
+for (i=0;i<CityAr.length;i++){
+frm+=" <OPTION VALUE="+i+">"+String(CityAr[i]).substring(0,String(CityAr[i]).indexOf(','))
+//if(String(CityAr[i])=="Winnipeg"){frm+="  SELECTED>"+String(CityAr[i])}// else{frm+=" >"+String(CityAr[i])}
+    }
+frm+=" </SELECT><HR SIZE=7>Standard Time Only</TR>"
+frm+="<TR>"
+frm+="<TD>City</TD><TD><INPUT name=cityP size=10 value="+city+">"
+frm+="</TD></TR><TR><TD>Latitude</TD><TD><INPUT name=Lat size=6 value="+cityLa+">"
+frm+="</TD></TR><TR><TD>Longitude</TD><TD><INPUT name=Lon size=6 value="+cityLo+">"
+frm+="</TD></TR><TR><TD>Zone</TD><TD><INPUT name=Zone size=2 value="+timezone+">"
+
+
+frm+="</TD></TR></FORM></TABLE>"
+
+document.write(frm)
+
+
+function doit(){
+X=(CityAr[document.cityFRM.cityF.selectedIndex])
+
+Y=X.split(',')
+//alert(Y[0]+"\n"+Y[1]+"\n"+Y[2]+"\n"+Y[3])
+
+//return Y
+
+
+document.cityFRM.cityP.value=Y[0]
+//city=CityAr[document.cityFRM.cityF.selectedIndex]
+window.top.Frame4.document.botForm.BUTtshra7.value=Y[0]
+
+window.top.Frame3.document.body.innerHTML="Click Button Below To See Calendar For The City Of "+Y[0]
+//alert(city)
+
+//CHANGE THE TIMEZONE NUMBER HERE
+//timezone=-6
+var timezone=eval(Y[3])
+//alert(timezone)
+document.cityFRM.Zone.value=timezone
+
+//CHANGE THE LONGITUDE NUMBER HERE
+//cityLo= -97.117 
+var cityLo=eval(Y[2])
+document.cityFRM.Lon.value=cityLo
+
+//CHANGE THE LATITUDE NUMBER HERE
+//cityLa= 49.83   
+var cityLa=  eval(Y[1])
+document.cityFRM.Lat.value=cityLa
+}
+
+ city=document.cityFRM.cityP.value
+ cityLa=eval(document.cityFRM.Lat.value)
+ cityLo=eval(document.cityFRM.Lon.value)
+ timezone=eval(document.cityFRM.Zone.value)
+
+function warning(){
+if(Math.abs(eval(document.cityFRM.Lat.value))>57){
+alert('Warning times at very high or very \nlow Latitudes are not very accurate!')
+}
+if(document.cityFRM.cityP.value=="Haifa"||document.cityFRM.cityP.value=="Tel Aviv"){
+alert("The candlighting times in this calendar are\nbased on the standard 18 minutes before sunset\n\nYou must subtract from the \nlighting time in the calendar\n\n 12 minutes for Haifa\n 3 minutes for Tel Aviv")
+}
+}
+
+
+</SCRIPT>
+
+
+<HR>
+
+<SCRIPT language = JavaScript>
+var frm=""
+frm+="<FORM name=YearFRM>"
+frm+="Choose a Year<SELECT name=eYear >"
+for(i=2099;i>=1697;i--){
+frm+=" <OPTION VALUE="+i
+if(i==thisYear){frm+="  SELECTED>"+i}else{frm+=" >"+i}
+}
+
+frm+=" </SELECT></FORM>"
+document.write(frm)
+
+</SCRIPT>
+<A HREF="TimeNow.html" TARGET="Frame2">Time Now</A><P>
+
+
+<BR><P>
+
+<A HREF="START_here.html" Target="_top">Back To Start Page</A><P>
+
+<HR WIDTH=100% SIZE=3><BR>
+
+<b>
+</TABLE>
+
+
+<HR>
+<TABLE ALIGN=CENTER WIDTH=60%>
+
+<TR><TD ALIGN=LEFT VALIGN=TOP WIDTH=30% BGCOLOR='black' ><FONT COLOR="lightgreen"><TT><B><SMALL>
+&copy;Rabbi Y.Y. Charytan<BR> 770 Beecher ave. <BR>Winnipeg Canada <BR>R2V 4R5</FONT></SMALL></TT></TD>
+<TD ALIGN=LEFT VALIGN=TOP WIDTH=20% BGCOLOR='blue'><FONT COLOR="yellow"><TT><B><SMALL>
+do not copy or reproduce this program without written permission
+from Rabbi Charytan </FONT></SMALL></TT></TD><TD>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</TD><TD>
+<BR></TD></TR></TABLE><HR>
+
+
+ <BR>
+<SCRIPT language = JavaScript>
+/*
+function strt(){
+document.links[0].click()
+}
+
+setTimeout('strt()', 9000)
+*/
+
+
+</SCRIPT>
+<noscript>
+  <p><center>
+  <b><font size="+2">Please enable JavaScript to use this page.</font></b>
+  </center>
+  <p>
+</noscript>
+</BODY>
+</HTML>
+
