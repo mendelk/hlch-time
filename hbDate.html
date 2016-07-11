@@ -1,0 +1,1180 @@
+<HTML>
+<HEAD>
+<TITLE>
+To-Day's Jewish Date
+</TITLE>
+<script language="javascript" src="clock.js"></script>
+<script language="javascript" src="astro.js"></script>
+<script language="javascript" src="degrees.js"></script>
+<script language="javascript" src="sun.js"></script>
+<script language="javascript" src="motzishb.js"></script>
+<SCRIPT language = JavaScript>
+var hbYr = 1 * hbYr
+var kYr = 1 * kYr
+var  c0 = 0
+ var  H0 = 0
+ var  d0 = 0
+var  hc0 = 0
+var  dh0 = 0
+var ii=0
+var tdd=" "
+var tdd2=" "
+var tdd3=" "
+var FulY=0
+var hvdl='<IMG SRC="hvdl.gif" WIDTH="24" HEIGHT="80" BORDER="0" ALT="Havdolo Candle">'
+var cndl='<IMG SRC="candle.gif" WIDTH="12" HEIGHT="30" BORDER="0" ALT="Light Candles"><IMG SRC="candle.gif" WIDTH="12" HEIGHT="42" BORDER="0" ALT="i"><IMG SRC="candle.gif" WIDTH="12" HEIGHT="42" BORDER="0" ALT="i">'
+city="Winnipeg"
+//city="Chicago"
+function HBy(EYR){
+return EYR + 3761
+}
+
+function cdL(Myr, Mmo, i){
+var when=new Date(Myr, Mmo, i, 00, 00, 00)
+var s=2
+
+timezone=-6
+cityLo= -97.117 
+cityLa= 49.83   
+
+/*
+city="Chicago"
+timezone=-6
+cityLo= -87.633 
+cityLa= 41.883  
+*/
+
+/*
+var city="Jerusalem"
+timezone=2
+cityLo= 34.767 
+cityLa= 31.767
+*/
+
+cityYear=when.getFullYear()
+cityMonth=when.getMonth()+1
+cityDay=when.getDate()
+cityWkd=when.getDay() +1
+//alert(cityWkd)
+
+/*
+if(cityWkd==6){
+if(cityMonth>3&&cityMonth<10){saving=1}else{saving=0}
+XXX=(SunRiseSet(cityYear,cityMonth,cityDay,cityLa,cityLo))
+cndlstr="Winnipeg Shabbos Candlighting time ".fontcolor('orange')
+cndlstr+=hmstring((XXX[1]-18/60)+timezone-12+saving).fontcolor('yellow')+" pm".fontcolor('orange')
+}else{
+*/
+
+if(cityMonth>3&&cityMonth<10){saving=1}else{saving=0}
+XXX=(SunRiseSet(cityYear,cityMonth,cityDay,cityLa,cityLo))
+
+cndlstr=" "
+cndlstr+="<TABLE ALIGN=CENTER BORDER=2 WIDTH=50% BGCOLOR='black'><TR><TD ALIGN=CENTER><B>"
+
+if(cityWkd==6){
+cndlstr+=cndl+"<BR>Shabbos Candlighting time ".fontcolor('yellow')
+cndlstr+=hmstring((XXX[1]-18/60)+timezone-12+saving).fontcolor('orange')+" pm תורנה תקלדה<HR>".fontcolor('yellow')
+}
+
+cndlstr+=("<font size=s>"+" Alos Hashachar "+hmstring((XXX[8])+timezone+saving)+" am תולע <HR>").fontcolor('yellow')
+//cndlstr+=("<font size=s>"+" Alos Hashachar Adh\"z 24J "+hmstring((XXX[9])+timezone+saving)+" am<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s>"+" Sunrise "+hmstring((XXX[0])+timezone+saving)+" am ץנ<HR>").fontcolor('orange')
+
+cndlstr+=("<font size=s> Krias Shema "+hmstring((XXX[2])+timezone+saving)+" am עמש<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Tefilah "+hmstring((XXX[3])+timezone+saving)+" am הליפת<HR>").fontcolor('orange')
+//cndlstr+=("<font size=s> Chatzsois "+hmstring((XXX[4])+timezone+saving)+" תוצח<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Chatzsois "+((XXX[4]+timezone+saving>13.0)?hmstring((XXX[4])+timezone+saving-12.0)+" תוצח<HR>":hmstring((XXX[4])+timezone+saving)+" תוצח<HR>")).fontcolor('yellow')
+cndlstr+=("<font size=s> Earliest Mincha "+((XXX[4]+timezone+0.5+saving>13.0)?hmstring((XXX[4])+timezone+0.5+saving-12.0)+" pm 'ג החנמ<HR>":hmstring((XXX[4])+timezone+0.5+saving)+" 'ג החנמ<HR>")).fontcolor('orange')
+cndlstr+=("<font size=s> Mincha Ktana "+hmstring((XXX[6])+timezone+saving-12.0)+" pm 'ק החנמ<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Plag HaMincha "+hmstring((XXX[7])+timezone+saving-12.0)+" pm החנמה 'פ<HR>").fontcolor('orange')
+cndlstr+=("<font size=s> Sunset "+hmstring((XXX[1])+timezone-12.0+saving)+" pm העיקש<HR>").fontcolor('yellow')
+YYY=(SunRiseSetH(cityYear,cityMonth,cityDay,cityLa,cityLo))
+cndlstr+=("<font size=s> Tzseis Hakochovim " +hmstring((YYY[2])+timezone+saving-12.0)+" pm תאצ").fontcolor('orange')
+if(cityWkd==7){
+cndlstr+="<HR>"+"<TABLE ALIGN=CENTER WIDTH=20%><TR><TD ALIGN=RIGHT>"
+cndlstr+=hvdl+"</TD><TD ALIGN=CENTER>"+("<font size=3><B> HAVDOLO " +hmstring((YYY[2])+timezone+saving-12.0+4.0/60.0)+" pm הלדבה</B>").fontcolor('orange')
+cndlstr+="</TD></TR></TABLE>"
+}
+
+cndlstr+="</B></TD></TR></TABLE>"
+
+return cndlstr
+}
+
+
+
+function koy(hbYr)
+{
+var y = 1 * hbYr;
+var mzr = Math.floor(y/19)
+var k= y % 19;
+var RHsep = 1 * RHsep
+ // return k
+ switch ( k ) {
+
+case 2:
+	kYr = 1;
+        RHsep = 22;
+	addMth = 0;
+	break;
+
+case 5:
+	kYr = 1;
+        RHsep = 18;
+	addMth = 1;
+	break;
+
+case 10:
+	kYr = 1;
+        RHsep = 24;
+	addMth = 3;
+	break;
+
+case 13:
+	kYr = 1;
+        RHsep = 20;
+	addMth = 4;
+	break;
+
+case 16:
+	kYr = 1;
+        RHsep = 16;
+	addMth = 5;
+	break;
+
+case 1:
+	kYr = 2;
+        RHsep = 32;
+	addMth = 0;
+	break;
+
+case 4:
+	kYr = 2;
+        RHsep = 29;
+	addMth = 1;
+	break;
+
+case 7:
+	kYr = 2;
+        RHsep = 27;
+	addMth = 2;
+	break;
+
+case 9:
+	kYr = 2;
+        RHsep = 34;
+	addMth = 3;
+	break;
+
+case 12:
+	kYr = 2;
+        RHsep = 30;
+	addMth = 4;
+	break;
+
+case 15:
+	kYr = 2;
+        RHsep = 28;
+	addMth = 5;
+	break;
+
+case 18:
+	kYr = 2;
+        RHsep = 25;
+	addMth = 6;
+	break;
+
+case 3:
+	kYr = 3;
+        RHsep = 11;
+	addMth = 1;
+	break;
+
+case 6:
+	kYr = 3;
+        RHsep = 8;
+	addMth = 2;
+	break;
+
+case 8:
+	kYr = 3;
+        RHsep = 16;
+	addMth = 3;
+	break;
+
+case 11:
+	kYr = 3;
+        RHsep = 12;
+	addMth = 4;
+	break;
+
+case 14:
+	kYr = 3;
+        RHsep = 9;
+	addMth = 5;
+	break;
+
+case 17:
+	kYr = 3;
+        RHsep = 6;
+	addMth = 6;
+	break;
+
+case 0:
+	kYr = 3;
+        RHsep = 14;
+	addMth = 0;
+	break;
+
+	}
+
+    if (kYr == 3) {
+var YrS = "" + "M"
+var MHB = "MEUBERES"
+}
+else
+{ YrS = "P"
+var MHB = "PSHUTA"
+}
+var sp = " "+kYr+"kYr"+" "+RHsep+"RHsep"+" "+k+"k"+" "+addMth+"addMth"+" " + MHB + " " + YrS + " " + mzr
+var koy=sp.split(" "); ////alert(koy) 
+ return koy  //koy[1]=kYr
+}
+
+
+
+function  machzorShairis(mchz, dmchz, hmchz, cmchz) {
+// initalize  and determine amt of days, hrs, and chalokim
+//in the 19yr cycles till this year from creation
+ cmchz = 595 * mchz    // each 19 year cycle has 2d,16hrs,
+                 //and 595chalokim
+ hmchz = 16 * mchz    // beyond the exact number of weeks
+ dmchz = 2 * mchz
+
+ hcmchz = parseInt(cmchz / 1080)
+ cmchz = cmchz % 1080
+ hmchz = hmchz + hcmchz
+ dhmchz = parseInt(hmchz / 24)
+ hmchz = hmchz % 24
+ dmchz = dmchz + dhmchz
+  dmchz = dmchz % 7
+//return  (" " +  mchz + "mchz <BR> and it's MachzorShairis is " + dmchz + "days "  + hmchz + "hrs " + cmchz + "Chalokim")
+return (" "+mchz+"mchz "+ dmchz+"dmchz "+ hmchz+"hmchz "+ cmchz+"cmchz")
+}
+
+
+
+function shairisAdd(d, H, c) {
+
+      hc = Math.floor(c / 1080)
+        c = c % 1080
+              H = H + hc
+                    dh = Math.floor(H / 24)
+                      H = H % 24
+                            d = d + dh
+                              d = d % 7
+shairisadd=(" " + d + " " + H + " " + c)
+shairis=shairisadd.split(" ")
+return (shairis)
+}
+
+
+
+function ERh(eyr) {
+var eyr = 1 * eyr
+var d = 1 * d
+
+
+var erh = eyr % 28;
+
+  switch (erh) {
+
+ case 0:
+d = 5;
+break;
+
+case 1:
+d = 6;
+break;
+case 2:
+d = 7;
+break;
+case 3:
+d = 1;
+break;
+case 4:
+d = 3;
+break;
+case 5:
+d = 4;
+break;
+case 6:
+d = 5;
+break;
+case 7:
+d = 6;
+break;
+case 8:
+d = 1;
+break;
+case 9:
+d = 2;
+break;
+case 10:
+d = 3;
+break;
+case 11:
+d = 4;
+break;
+case 12:
+d = 6;
+break;
+case 13:
+d = 7;
+break;
+case 14:
+d = 1;
+break;
+case 15:
+d = 2;
+break;
+case 16:
+d = 4;
+break;
+case 17:
+d = 5;
+break;
+case 18:
+d = 6;
+break;
+case 19:
+d = 7;
+break;
+case 20:
+d = 2;
+break;
+case 21:
+d = 3;
+break;
+case 22:
+d = 4;
+break;
+case 23:
+d = 5;
+break;
+case 24:
+d = 7;
+break;
+case 25:
+d = 1;
+break;
+case 26:
+d = 2;
+break;
+case 27:
+d = 3;
+break;
+           }
+   if (eyr < 1900) { d = d + 1}    //corrections for Gregorian cal
+    if (eyr < 1800) { d = d + 1}
+     if (eyr < 1600) { d = d + 1}
+     
+    if (eyr > 2100) { d = d - 1;if(d==0){d=7}}
+    if (eyr > 2200) { d = d - 1;if(d==0){d=7}}
+    if (eyr > 2300) { d = d - 1;if(d==0){d=7}}
+//alert("eng d= "+d)
+return d
+} 
+
+
+function day(da)
+{
+switch (da) {
+
+case 0:
+da = "Shabbos";
+break;
+case 1:
+da = "Sunday";
+break;
+case 2:
+da = "Monday";
+break;
+case 3:
+da = "Tuesday";
+break;
+case 4:
+da = "Wednesday";
+break;
+case 5:
+da = "Thursday";
+break;
+case 6:
+da = "Friday";
+break;
+case 7:
+da = "Shabbos";
+break;
+}
+ return da
+}
+
+
+function mth(m){
+if(m==0){ms="January"}
+if(m==1){ms="February"}
+if(m==2){ms="March"}
+if(m==3){ms="April"}
+if(m==4){ms="May"}
+if(m==5){ms="June"}
+if(m==6){ms="July"}
+if(m==7){ms="August"}
+if(m==8){ms="September"}
+if(m==9){ms="October"}
+if(m==10){ms="November"}
+if(m==11){ms="December"}
+
+return ms
+}
+
+function mthN(N){
+var m=99
+if(N=="January"){m=0}
+if(N=="February"){m=1}
+if(N=="March"){m=2}
+if(N=="April"){m=3}
+if(N=="May"){m=4}
+if(N=="June"){m=5}
+if(N=="July"){m=6}
+if(N=="August"){m=7}
+if(N=="September"){m=8}
+if(N=="October"){m=9}
+if(N=="November"){m=10}
+if(N=="December"){m=11}
+
+return m
+}
+
+function dOw(m,d,y){
+dWK=0
+if (m <=2){
+m=m+12
+y=y-1
+}
+dayOfWeeK = (d + 2*m + Math.floor(3*(m+1)/5) +y + Math.floor(y/4) - Math.floor(y/100) + Math.floor(y/400) +2 )%7
+return dayOfWeeK
+}
+
+function SRHd(Yhb) {
+var RHsep=0
+var hbcycl = Yhb%19
+switch (hbcycl) {
+
+                    case 1:
+                          RHsep = 32; 
+break;
+                    case 2:
+                          RHsep = 22; 
+break;
+                    case 3:
+                          RHsep = 11; 
+break;
+                    case 4:
+                          RHsep = 29; 
+break;
+                    case 5:
+                          RHsep = 18; 
+break;
+                    case 6:
+                          RHsep = 8; 
+break;
+                    case 7:
+                          RHsep = 27; 
+break;
+                    case 8:
+                          RHsep = 16; 
+break;
+                    case 9:
+                          RHsep = 34; 
+break;
+                    case 10:
+                          RHsep = 24; 
+break;
+                    case 11:
+                          RHsep = 12; 
+break;
+                    case 12:
+                          RHsep = 30; 
+break;
+                    case 13:
+                          RHsep = 20; 
+break;
+                    case 14:
+                          RHsep = 9; 
+break;
+                    case 15:
+                          RHsep = 28; 
+break;
+                    case 16:
+                          RHsep = 16; 
+break;
+                    case 17:
+                          RHsep = 6; 
+break;
+                    case 18:
+                          RHsep = 25; 
+break;
+                    case 0:
+                          RHsep = 14; 
+break;
+}
+//alert("RHsep= "+RHsep)
+return RHsep
+}
+
+
+function MT(HByr){
+ var yh0=0
+var yh0k=0
+
+
+yh0=koy(HByr-1) ; ////alert(yh0)
+yh0k=parseInt(yh0[3]); ////alert("yh0k = "+ yh0k)
+yh0addMth=parseInt(yh0[4]); ////alert(yh0addMth) 
+var yi=1*yi
+yi= (parseInt(yh0k*12)) + (parseInt(yh0addMth))
+////alert("yi = " + yi)
+var c0=0
+var H0=0
+var d0=0
+
+for(var i=0; i < parseInt(yi); i++){
+
+   c0 +=  793
+    H0 += 12
+     d0 +=  1
+       hc0 = Math.floor(c0 / 1080)
+            c0 = c0 % 1080
+ H0 +=  hc0
+   dh0 = Math.floor(H0 / 24)
+       H0 = H0 % 24
+         d0 += dh0
+           d0 = d0 % 7
+ ////alert(" " + d0 + " " + H0 + " " + c0)
+}
+////alert(" "+ d0 + " "+ H0 + " " + c0)
+var d1=0
+var H1=0
+var c1=0
+
+
+
+yhx = machzorShairis(parseInt(yh0[7]),d1,H1,c1)
+            yhxo=yhx.split(" ")
+//        //alert(yhxo);////alert("STOP HERE" + yhxo)
+	dy=parseInt(yhxo[2])
+	Hy=parseInt(yhxo[3])
+	cy=parseInt(yhxo[4])
+////alert(" " + dy + Hy + cy)
+      dyr=d0+dy+2
+	Hyr=H0+Hy+5
+	 cyr=c0+cy+204
+KYR1=koy(HByr)
+var moladTishrei = shairisAdd(dyr,Hyr,cyr)+ "," +parseInt(KYR1[1])
+//document.write("<P>The moladTishrei of "+ HByr+" is "+ moladTishrei)
+return moladTishrei
+}
+
+
+function Dechia1(d,h) {
+	if (h>=18){
+	d = d+1
+	}
+	else {
+	d=d
+	}
+//alert("D1d="+d)
+return d
+}
+
+function Dechia2(d) {
+	 if (d==1||d==4||d==6) {
+	d=d+1}
+	else {
+	d=d
+	}
+//alert("D2d="+d)
+return d
+}
+
+function Dechia3(k,d,h,c) {
+	if ((k!=3&&d==3&&h==9&&c>=204)||(k!=3&&d==3&&h>9)){
+	d=5
+	}
+	else {
+	d=d
+	}
+//alert("D3d="+d)
+return d
+}
+
+function Dechia4(k,d,h,c) {
+	if ((k==2&&d==2&&h==15&&c>=589)||(k==2&&d==2&&h>15)){
+	d=3
+	}
+	else {
+	d=d
+	}
+//alert("D4d="+d)
+return d
+}
+
+
+function DECH(k,d,h,c){
+d0=d
+//alert("d0= "+d)
+if (d==3){
+d=Dechia3(k,d,h,c);//alert("d3= "+d)
+if(d0!=d){d0=99}
+}
+if(d!=5&&d0==2){
+d=Dechia4(k,d,h,c);//alert("d4= "+d)
+}
+if(d!=3&&d!=5||d0==5||d0==3){
+d=Dechia1(d,h);//alert("d1= "+d)
+d=Dechia2(d);//alert("d2= "+d)
+}
+if (d==7){d=0}
+//alert("dFinal= "+d)
+return d
+}
+
+
+
+function MK(KYR){ //kind of Jyear M or P
+    if (KYR == 3) {
+var YrS = "" + "M"
+var MHB = "MEUBERES"
+}
+else
+{ YrS = "P"
+var MHB = "PSHUTA"}
+return MHB
+}
+
+function RHaug(R,SEPr,eYR){
+while(SEPr!=RH){
+if (dOw(8,SEPr,eYR)==RH){SEPr=SEPr}
+else
+{SEPr=SEPr+1}
+}
+return SEPr
+}
+
+function ml(j,sy){
+switch (j){
+case 0:
+k=30;
+break;
+case 1:
+if(sy!="molei"){k=29}else{k=30};
+break;
+case 2:
+if(sy=="choser"){k=29}else{k=30};
+break;
+case 3:
+k=29;
+break;
+case 4:
+k=30;
+break;
+case 5:
+k=29;
+break;
+case 6:
+k=30;
+break;
+case 7:
+k=29;
+break;
+case 8:
+k=30;
+break;
+case 9:
+k=29;
+break;
+case 10:
+k=30;
+break;
+case 11:
+k=29;
+break;
+}
+return k
+}
+
+
+function mlM(j,sy){
+switch (j){
+case 0:
+k=30;
+break;
+case 1:
+if(sy!="molei"){k=29}else{k=30};
+break;
+case 2:
+if(sy=="choser"){k=29}else{k=30};
+break;
+case 3:
+k=29;
+break;
+case 4:
+k=30;
+break;
+case 5:
+k=30;
+break;
+case 6:
+k=29;
+break;
+case 7:
+k=30;
+break;
+case 8:
+k=29;
+break;
+case 9:
+k=30;
+break;
+case 10:
+k=29;
+break;
+case 11:
+k=30;
+break;
+case 12:
+k=29;
+break;
+}
+return k
+}
+
+
+function DaysLeft(rhY,rhM,rhD,YrL){
+
+d = new Date() ;//alert(d)   //today's date
+RHd=new Date(rhY, rhM, rhD, 00, 00, 00)    
+diff = d- RHd  ;//alert(diff)  //difference in milliseconds
+mtg = new String(diff/86400000)    //calculate days and convert to string
+point=mtg.indexOf(".")    //find the decimal point
+days=mtg.substring(0,point) ;//alert(days)   //get just the whole days
+Xdoc="Today is "+ day(d.getDay()+1) + " " +d.getDate()+" "+ mth(d.getMonth()) + " "+d.getFullYear()+" "+ days + " days have passed since  Rosh HaShana"
+Xdoc+=" and there are "+(YrL-days)+" days left until the end of the year "
+//alert(Xdoc)
+document.write("<BR> IT IS NOW "+d)
+//document.write( "Today is day#"+ d.getDay() + ",    " + (d.getMonth()+1) + "/"+d.getDate()+"/"+d.getFullYear()+" "+ days + " days have passed since  Rosh HaShana.") 
+return Xdoc
+}
+
+function toDay(){
+d=new Date()
+Xdate=""+(d.getMonth()+1) + "/"+d.getDate()+"/"+d.getFullYear()
+return Xdate
+}
+
+function toDate(){
+d=new Date()
+Xdate=""+(d.getMonth()+1) + "/"+d.getDate()
+return Xdate
+}
+
+function YomTov(hbM,hbD,SY){
+ymtv=""
+if (hbM=="Tishrei"&&hbD==1){ymtv=" Rosh Hashana"}
+if (hbM=="Tishrei"&&hbD==2){ymtv=" Rosh Hashana"}
+if (hbM=="Tishrei"&&(hbD>2&&hbD<9)&&dAy=="Shabbos"){ymtv=" Shabbos Tshuva"}
+if (hbM=="Tishrei"&&hbD==10){ymtv=" Yom Kippur"}
+if (hbM=="Tishrei"&&hbD==14){ymtv=" Erev Succos"}
+if (hbM=="Tishrei"&&hbD==15){ymtv=" YOM TOV Succos Day 1"}
+if (hbM=="Tishrei"&&hbD==16){ymtv=" YOM TOV Succos Day 2"}
+if (hbM=="Tishrei"&&hbD>=17&&hbD<=20){ymtv=" Chol Hamoed"}
+if (hbM=="Tishrei"&&hbD==21){ymtv=" Hoshana Rabba"}
+if (hbM=="Tishrei"&&hbD==22){ymtv=" YOM TOV Shmini Atzeres"}
+if (hbM=="Tishrei"&&hbD==23){ymtv=" YOM TOV Simchas Torah"}
+//if (hbM=="Cheshvan"&&hbD==8){ymtv=(" Happy Birthday Mommy you're "+String(HBY-5715)+" years old today"+" start Ps. "+String(HBY-5715+1)).fontcolor('lightgreen')}
+//if (hbM=="Cheshvan"&&hbD==19){ymtv=(" Happy Birthday Naftoli you're "+String(HBY-5742)+" years old today"+" start Ps. "+String(HBY-5742+1)).fontcolor('lightgreen')}
+if (hbM=="Cheshvan"&&hbD==20){ymtv=" CHOF CHESHVAN "+(String(HBY-5621)+" years since the birth of the Rebbe RaShab "+" start Ps. "+String(((HBY-5621)%150)+1)).fontcolor('lightgreen')}
+if (hbM=="Kislev"&&hbD==9){ymtv=" TES KISLEV "+(String(HBY-5534)+" years since the birth of the Mitteler Rebbe "+" start Ps. "+String(((HBY-5534)%150)+1)).fontcolor('lightgreen')}
+if (hbM=="Kislev"&&hbD==10){ymtv=" YUD KISLEV"}
+if (hbM=="Kislev"&&hbD==19){ymtv=" YUD TES KISLEV"}
+if (hbM=="Kislev"&&hbD==24){ymtv=" Erev Chanukah 1'st Candle at night"}
+if (hbM=="Kislev"&&hbD==25){ymtv=" CHANUKAH 2'nd Candle at night"}
+if (hbM=="Kislev"&&hbD==26){ymtv=" CHANUKAH 3'rd Candle at night"}
+if (hbM=="Kislev"&&hbD==27){ymtv=" CHANUKAH 4'th Candle at night"}
+if (hbM=="Kislev"&&hbD==28){ymtv=" CHANUKAH 5'th Candle at night"}
+if (hbM=="Kislev"&&hbD==29){ymtv=" CHANUKAH 6'th Candle at night"}
+if (hbM=="Kislev"&&hbD==30){ymtv=" CHANUKAH 7'th Candle at night"}
+if (hbM=="Teves"&&hbD==1&&SY!="choser"){ymtv=" CHANUKAH 8'th Candle at night"}
+if (hbM=="Teves"&&hbD==2&&SY!="choser"){ymtv=" ZOS CHANUKAH "}
+if (hbM=="Teves"&&hbD==1&&SY=="choser"){ymtv=" CHANUKAH 7'th Candle at night"}
+if (hbM=="Teves"&&hbD==2&&SY=="choser"){ymtv=" CHANUKAH 8'th Candle at night"}
+if (hbM=="Teves"&&hbD==3&&SY=="choser"){ymtv=" ZOS CHANUKAH "}
+if (hbM=="Teves"&&hbD==5){ymtv=" DIDON NOTZACH "}
+if (hbM=="Teves"&&hbD==10){ymtv=" Assoro B'Teves Fast of the Tenth of Teves"}
+if (hbM=="Teves"&&hbD==20){ymtv=" The Rambam's Yahrzeit "}
+//if (hbM=="Shvat"&&hbD==11){ymtv=(" Happy Birthday Yossi you're "+String(HBY-5737)+" years old today"+" start Ps. "+String(HBY-5737+1)).fontcolor('lightgreen')}
+if (hbM=="Shvat"&&hbD==10){ymtv=" YUD SHVAT "+ String(HBY-5710)+" years since the REBBE 's NESIUS"}
+if (hbM=="Shvat"&&hbD==15){ymtv=" TU B'SHVAT"}
+if (hbM=="Adar"&&hbD==7){ymtv=" Moshe Rabbeinu's Birthday"+" start Ps. "+String(((HBY-2368)%150) +1)}
+if (hbM=="Adar"&&hbD==11&&dAy=="Thursday"){ymtv=" FAST OF ESTHER mukdom"}
+if (hbM=="Adar"&&hbD==13&&dAy!="Shabbos"){ymtv=" FAST OF ESTHER"}
+if (hbM=="Adar"&&hbD==14){ymtv=" PURIM"}
+if (hbM=="Adar"&&hbD==15){ymtv=" SHUSHAN PURIM"}
+//if (hbM=="Adar"&&hbD==22){ymtv=(" Happy Birthday Tati you're "+String(HBY-5710)+" years old today"+" start Ps. "+String(HBY-5710+1)).fontcolor('lightgreen')}
+if (hbM=="AdarI"&&hbD==7){ymtv=" Moshe Rabbeinu's Birthday"+" start Ps. "+String(((HBY-2368)%150) +1)}
+if (hbM=="AdarI"&&hbD==14){ymtv=" PURIM KOTON"}
+if (hbM=="AdarI"&&hbD==15){ymtv=" SHUSHAN PURIM KOTON"}
+//if (hbM=="AdarI"&&hbD==22){ymtv=(" Happy Birthday Tati you're "+String(HBY-5710)+" years old today"+" start Ps. "+String(HBY-5710+1)).fontcolor('lightgreen')}
+if (hbM=="AdarII"&&hbD==11&&dAy=="Thursday"){ymtv=" FAST OF ESTHER mukdom"}
+if (hbM=="AdarII"&&hbD==13&&dAy!="Shabbos"){ymtv=" FAST OF ESTHER"}
+if (hbM=="AdarII"&&hbD==14){ymtv=" PURIM "}
+if (hbM=="AdarII"&&hbD==14){ymtv=" SHUSHAN PURIM"}
+//if (hbM=="AdarII"&&hbD==22){ymtv=(" Happy Birthday Tati you're "+String(HBY-5710)+" years old today"+" start Ps. "+String(HBY-5710+1)).fontcolor('lightgreen')}
+if (hbM=="Nisan"&&hbD==11){ymtv=" YUD ALEPH NISAN "+String(HBY-5662)+" years since the birth of the REBBE "+" start Ps. "+String(HBY-5662+1)}
+//if (hbM=="Nisan"&&hbD==13){ymtv=(" Happy Birthday Mattis you're "+String(HBY-5753)+" years old today"+" start Ps. "+String(HBY-5753+1)).fontcolor('lightgreen')}
+if (hbM=="Nisan"&&hbD==14){ymtv=" Erev Pesach 1'st SEDER at night"}
+if (hbM=="Nisan"&&hbD==15){ymtv=" YOM TOV PESACH 1'st day 2'nd SEDER at night"}
+if (hbM=="Nisan"&&hbD==16){ymtv=" YOM TOV PESACH 2'nd day"}
+if (hbM=="Nisan"&&hbD>=17&&hbD<=20){ymtv=" Chol Hamoed"}
+if (hbM=="Nisan"&&hbD==21){ymtv=" YOM TOV PESACH 7'th day"}
+if (hbM=="Nisan"&&hbD==22){ymtv=" YOM TOV PESACH 8'th day"}
+if (hbM=="Iyar"&&hbD==2){ymtv=" BEIS IYAR "+(String(HBY-5594)+" years since the birth of the Rebbe MaHaRash "+" start Ps. "+String(((HBY-5594)%150)+1)).fontcolor('lightgreen')}
+if (hbM=="Iyar"&&hbD==14){ymtv=" PESACH SHEINI"}
+if (hbM=="Iyar"&&hbD==18){ymtv=" LAG B'OMER"}
+if (hbM=="Sivan"&&hbD==5){ymtv=" EREV SHAVUOS"}
+if (hbM=="Sivan"&&hbD==6){ymtv=" YOM TOV SHAVUOS 1'st day"}
+if (hbM=="Sivan"&&hbD==7){ymtv=" YOM TOV SHAVUOS 2'nd day"}
+//if (hbM=="Sivan"&&(hbD==11||hbD==12)){ymtv=(" Happy Birthday Chaya Mushka you're "+String(HBY-5748)+" years old today"+" start Ps. "+String(HBY-5748+1)).fontcolor('lightgreen')}
+if (hbM=="Tammuz"&&(hbD==3)){ymtv="  GIMMEL TAMMUZ"}
+//if (hbM=="Tammuz"&&(hbD==5)){ymtv=("  Happy Birthday Sossia Hinda Frumet you're "+String(HBY-5750)+" years old today"+" start Ps. "+String(HBY-5750+1)).fontcolor('lightgreen')}
+if (hbM=="Tammuz"&&(hbD==12)){ymtv=" CHAG HAGEULAH YUD BEIS TAMMUZ  "+(String(HBY-5640)+" years since the birth of the Freerdiker Rebbe "+" start Ps. "+String(((HBY-5640)%150)+1)).fontcolor('lightgreen')}
+if (hbM=="Tammuz"&&hbD==13){ymtv=" CHAG HAGEULAH YUD-BEIS YUD-GIMMEL TAMMUZ "}
+if (hbM=="Tammuz"&&hbD==17){ymtv=" SHIVA OSSOR B'TAMMUZ"}
+if (hbM=="Av"&&hbD==5){ymtv=" YAHRZEIT OF THE ARI Z'AL"}
+if (hbM=="Av"&&hbD==9&&dAy!="Shabbos"){ymtv=" TISHA B'AV"}
+if (hbM=="Av"&&hbD==10&&dAy=="Sunday"){ymtv=" TISHA B'AV nidche"}
+if (hbM=="Av"&&hbD==15){ymtv=" CHAMISHO OSSOR B'AV"}
+if (hbM=="Av"&&hbD==20){ymtv=" CHOF AV"}
+//if (hbM=="Av"&&hbD==30){ymtv=(" Happy Birthday Mendy you're "+String(HBY-5735)+" years old today"+" start Ps. "+String(HBY-5735+1)).fontcolor('lightgreen')}
+//if (hbM=="Elul"&&hbD==12){ymtv=(" Happy Birthday Sholom Ber and Leah you're "+String(HBY-5743)+" and "+String(HBY-5745)+" years old today"+" start Ps. "+String(HBY-5743+1)+" and "+" Ps. "+String(HBY-5745+1)).fontcolor('lightgreen')}
+if (hbM=="Elul"&&hbD==18){ymtv=" CHAI ELUL "+String(HBY-5458)+" and "+String(HBY-5505)+" years since the birth of the B'esht and AdmH'z"+(" start Ps. "+String(((HBY-5458)%150)+1)+" and "+" start Ps. "+String(((HBY-5505)%150)+1)).fontcolor('lightgreen')}
+if (hbM=="Elul"&&hbD==29){ymtv=" EREV ROSH HASHANA "+String(HBY+1)+" "+(String(HBY-5549)+" years since the birth of the Tzemach Tzedek "+" start Ps. "+String(((HBY-5549)%150)+1)).fontcolor('lightgreen')}
+
+return ymtv
+
+}
+
+function Sefira(hbM,hbD){
+if ((hbM=="Nisan"&&hbD>14)||(hbM=="Iyar")||(hbM=="Sivan"&&hbD<5)){
+return true}
+else{return false}
+}
+
+function ctrii(hbM,hbD){
+var iii
+if(Sefira(hbM,hbD)){
+//alert(hbD+hbM)
+	if(hbM=="Nisan"){iii=(hbD % 15)+1}
+        if(hbM=="Nisan"&&hbD==30){iii=16}
+	else if(hbM=="Iyar"){iii=(hbD%30)+16}
+	else if(hbM=="Sivan"){iii=(hbD%6)+45}
+//alert(iii)
+return (" Count Omer "+String(iii)+" Tonight")
+}
+}
+</SCRIPT>
+</HEAD>
+
+
+<BODY    FONT="ARIAL" BGCOLOR="darkblue">
+<SCRIPT language = JavaScript>
+//window.personalbar.visible = false
+//window.toolbar.visible = false
+//window.statusbar.visible = false
+//window.resizeTo(1,1)
+//window.moveBy(100,30)
+ //DYnow = new Date()
+//Ynow=DYnow.getFullYear( )
+//alert('today is '+toDay())
+heint=toDate() //;alert(heint)
+todayY=""
+todayis = toDay()
+today=todayis.split("/")
+//alert(today+" "+today[0]+" "+today[1]+" "+today[2])
+
+if (today[0]<9){todayY=today[2]-1}else{todayY=today[2]}
+//if (today[0]==9||today[0]==10){alert("If the wrong YEAR results \n press the refresh button and \n subtract one year on the input box")}
+
+//var Eyr = prompt(" I N P U T   Y E A R   F O R   T O D A Y ' S   D A T E   ", todayY)
+   // Eyr=Ynow-1  
+if (document.cookie==""||document.cookie.length>4){var Eyr = todayY}else{
+var Eyr=document.cookie
+document.cookie=""}
+//alert("cookie1 "+document.cookie)
+EYR = parseInt(Eyr)
+if (EYR < 1700){alert("ALL DATES PRIOR TO 1700 MAY NOT BE VALID")}
+ HBY =HBy(EYR);////alert(HBY)  this is the Hebrew year 
+			 //starting in September
+
+  moladTishrei=MT(HBY) 
+ mt=moladTishrei.split(","); //alert("mt="+mt)
+
+for (i = 1; i < 4;  i++) {
+	mt[i] = parseInt(mt[i]);////alert(i+"LOOK"+mt)
+}
+
+
+// //alert(HBY+" "+HBY)
+HBY2=HBY+1;////alert("HBY2= "+HBY2)
+
+moladTishrei2=MT(HBY2)
+
+mt2=moladTishrei2.split(","); //alert("mt2="+mt2)
+
+for (i = 1; i < 4;  i++) {
+	mt2[i] = parseInt(mt2[i]);////alert(i+"LOOK"+mt2)
+}
+
+
+mt[1]=DECH(mt[4],mt[1],mt[2],mt[3])
+mt2[1]=DECH(mt2[4],mt2[1],mt2[2],mt2[3])
+
+//alert(i+"LOOK now2 mt2==="+mt2)
+//alert(mt[1]+" "+mt2[1])
+YD=((7-mt[1])+mt2[1])%7;////alert(YD);
+if(YD==0){YD=7};
+if (mt[4]==3){
+YL=378+YD
+}
+else {
+YL=350+YD
+}
+//alert("YD="+YD+" YL "+YL)
+if (YL==353||YL==383){SY="choser"}
+if (YL==354||YL==384){SY="ksidron"}
+if (YL==355||YL==385){SY="molei"}
+//document.write("<P>RoshHashana of "+HBY+"  is on day "+mt[1]+" "+ day(mt[1])+" and is a shana "+MK(mt[4])+" "+SY+" "+YL+" days long")
+//document.write("<P>RoshHashana of "+(HBY+1)+"  is on day "+mt2[1]+" "+ day(mt2[1])+" and is a shana "+MK(mt2[4]))
+
+
+SEPrh=SRHd(HBY);//alert("SEPrh ="+SEPrh)
+RH=0; SEPrh0=SEPrh
+if (EYR<1800){SEPrh=SEPrh-2}
+else if (EYR<1800){SEPrh=SEPrh-2}
+else if (EYR<1700){SEPrh=SEPrh-3}
+if (EYR<1582 ){SEPrh=SEPrh-14}
+DaS = dOw(9,SEPrh,EYR);if (DaS==0){DaS=7}
+//alert("WAT!!! Sept the "+SEPrh+" of "+EYR+" is on "+day(DaS)+DaS)
+RH=mt[1];//alert("RH="+RH)
+if (RH==0){RH=7};//alert("RH="+RH)
+
+	for (i=0;(i)<=(RH-DaS);i++){//alert(RH-DaS);
+            SEPrh = SEPrh+1; //alert(i +" SEPrh= "+SEPrh)
+}
+if (SEPrh-SEPrh0>=6) {SEPrh=SEPrh0-1}
+var Ssep=" September "
+if (SEPrh>30){SEPrh=SEPrh-30; Ssep=" October "}
+if (SEPrh<=0){SEPrh=31+SEPrh; Ssep=" August "}
+
+Mrh=9; if (Ssep !=" September "){Mrh=10};
+if (Ssep ==" August "){Mrh=8;
+SEPrh=SEPaug(RH,SEPrh,EYR)
+}
+
+
+FD=dOw(Mrh,SEPrh,EYR);if (FD==0){FD=7}
+if (FD!=RH){//alert("!!! INVALID DATE OF RoshHaShana !!!\n" +day(RH)+" not "+day(FD))
+SEPrhO=SEPrh
+SEPrh=SEPrh-1}
+//SEPrh=SEPrh+(RH-FD)
+//if ((SEPrhO-SEPrh)==1){SEPrh=SEPrhO-1}
+FD2=dOw(Mrh,SEPrh,EYR);if (FD2==0){FD2=7}
+if (FD2!=RH){//alert("!!! INVALID DATE OF RoshHaShana !!!\n" +day(RH)+" not "+day(FD2))
+SEPrh=SEPrhO+1}
+if (SEPrh==0){Mrh=9;Ssep =" September ";SEPrh=30}
+//document.write("<BR>RoshHashana of "+HBY+" falls on "+ day(mt[1])+Ssep+SEPrh+", "+EYR+"<BR> and is a shana "+MK(mt[4])+" "+SY+" "+YL+" days long")
+//alert(Mrh-1+","+SEPrh+","+EYR)
+//document.write(DaysLeft(EYR, (Mrh-1), SEPrh,YL)+" "+HBY)
+//DaysLeft(rhY,rhM,rhD)
+
+/*
+var Y353(Tishrei[30],Cheshvan[29],Kislev[29],Teves[29],Shvat[30],Adar[29],Nisan[30],Iyar[29],Sivan[30],Tammuz[29],Av[30],Elul[29])
+var Y354(Tishrei[30],Cheshvan[29],Kislev[30],Teves[29],Shvat[30],Adar[29],Nisan[30],Iyar[29],Sivan[30],Tammuz[29],Av[30],Elul[29])
+var Y355(Tishrei[30],Cheshvan[30],Kislev[30],Teves[29],Shvat[30],Adar[29],Nisan[30],Iyar[29],Sivan[30],Tammuz[29],Av[30],Elul[29])
+var Y383(Tishrei[30],Cheshvan[29],Kislev[29],Teves[29],Shvat[30],AdarI[30],AdarII[29],Nisan[30],Iyar[29],Sivan[30],Tammuz[29],Av[30],Elul[29])
+var Y384(Tishrei[30],Cheshvan[29],Kislev[30],Teves[29],Shvat[30],AdarI[30],AdarII[29],Nisan[30],Iyar[29],Sivan[30],Tammuz[29],Av[30],Elul[29])
+var Y385(Tishrei[30],Cheshvan[30],Kislev[30],Teves[29],Shvat[30],AdarI[30],AdarII[29],Nisan[30],Iyar[29],Sivan[30],Tammuz[29],Av[30],Elul[29])
+*/
+
+if(YL<=355){
+YJ=new Array("Tishrei","Cheshvan","Kislev","Teves","Shvat","Adar","Nisan","Iyar","Sivan","Tammuz","Av","Elul")
+}
+else{
+YJ=new Array("Tishrei","Cheshvan","Kislev","Teves","Shvat","AdarI","AdarII","Nisan","Iyar","Sivan","Tammuz","Av","Elul")
+}
+
+//Tishrei=new Array(30);if(SY=="choser"){Cheshvan=new Array(29)}else{Cheshvan=new Array(30)};if(SY=="Mole"){Kislev=new Array(30)}else{Kislev=new Array(29)};Teves=new Array(29);Shvat=new Array(30);Adar=new Array(29);AdarI=new Array(30);AdarII=new Array(29);Nisan=new Array(30);Iyar=new Array(29);Sivan=new Array(30);Tammuz=new Array(29);Av=new Array(30);Elul=new Array(29)
+
+i=1;day1=mt[1]
+//document.write("<H1>For today's date click ==> <a href='#TODAY'>TODAY</a>")
+//document.write("<H1><FONT color='#0000ff' face='arial' <BR><BR>Hebrew Calendar For "+HBY+"  ("+EYR+"-"+(EYR+1)+")</FONT><BR><H5>")
+for (j=0;j<YJ.length;j++){
+if(YL<=355){doM=ml(j,SY)}else{doM=mlM(j,SY)}
+
+//document.write("<p>"+" "+"<HR ALIGN='left' WIDTH=60%>"+" "+YJ[j]+ "<HR ALIGN='left' WIDTH=60%>")
+
+for (mthlgth=1;mthlgth<=doM;mthlgth++){
+
+		
+			cal1=""
+			cal="<BR>"
+//jm=(j+7)%12
+//if(jm==0){jm=12}
+RHdate= new Date(EYR, (Mrh-1), SEPrh++, 00, 00, 00)
+if(mthlgth==30||mthlgth==1&&i>1){rChdsh=" Rosh Chodesh"}
+else{rChdsh=" "}
+
+dAy=day(((day1)++)%7)
+
+if (i==1){
+//document.write("<p>"+" "+"<HR ALIGN='left' WIDTH=60%>"+" "+mth(RHdate.getMonth())+" "+RHdate.getFullYear()+ "<HR ALIGN='left' WIDTH=60%>")
+}
+cal+=(i++)
+if(dAy!="Shabbos"){
+cal1+= "  "+ dAy 
+}else
+{cal1+="  <FONT COLOR='#FF0000' FACE='ARIAL' >"
+cal1+= dAy +"   "+"</FONT>"}
+cal1+="   "+YJ[j]+" "+mthlgth+" "+HBY+"      (" + (RHdate.getMonth()+1)
+
+if (RHdate.getDate()==1){
+//document.write("<p>"+" "+"<HR ALIGN='left' WIDTH=60%>"+" "+mth(RHdate.getMonth())+" "+RHdate.getFullYear()+ "<HR ALIGN='left' WIDTH=60%>")
+}
+
+
+caltd="/"+RHdate.getDate()+"/"+RHdate.getFullYear()+")"
+//cal+=caltd
+
+//cal+="/"+RHdate.getDate()+"/"+RHdate.getFullYear()+")"
+
+caln=""+(RHdate.getMonth()+1)+"/"+RHdate.getDate()
+/*if (caln==heint){
+//alert(heint+" "+caln)
+caltd= caltd+" <== T O D A Y "
+caltd = caltd.anchor("TODAY").fontcolor("red")
+
+}*/
+
+cal1+= caltd
+
+
+
+//cal1+="<FONT COLOR='#FF0000' FACE='ARIAL' >"
+//cal1+=" "+YomTov(YJ[j],mthlgth,SY)+" "+ rChdsh+"</FONT>"
+FulY=RHdate.getFullYear()
+if (caln==heint&&FulY==today[2]){
+//alert(caln+" "+heint+" "+cal1+"\n\n"+RHdate+"\n\n"+today[2])
+
+//FulY=RHdate.getFullYear()
+//alert(FulY+" "+today[2])
+
+if (FulY>today[2]&&(today[0]==9||today[0]==10)){
+//alert("CHANGE OF YEAR \n  \n from "+today[2]+" to "+(today[2]-1)+"\n\n"+today[0]+"\n\n"+today[1]+"\n\n"+today[2]+"\n\n"+FulY)
+document.cookie=(today[2]-1)
+//alert("cookie "+document.cookie)
+window.history.go(0)}
+{
+tdd = cal1
+tdAy=dAy
+var uvw = mth(RHdate.getMonth())+" "+RHdate.getDate()+" "+RHdate.getFullYear()
+var xyz=YJ[j]+" "+mthlgth+" "+HBY
+tdd2=" "+YomTov(YJ[j],mthlgth,SY)+" "+ rChdsh+" "
+if(ctrii(YJ[j],mthlgth)){tdd3=ctrii(YJ[j],mthlgth)}
+cal1=cal1.anchor("TODAY").fontcolor("blackcherry")
+}
+
+}
+cal1+="<FONT COLOR='#FF0000' FACE='ARIAL' >"
+cal1+=" "+YomTov(YJ[j],mthlgth,SY)+" "+ rChdsh+"</FONT>"
+cal+=cal1
+
+
+
+document.fgColor = "darkblue"
+//document.bgColor = "silver"
+
+//document.write(cal.fixed())
+//document.write(cal)
+}
+}
+
+
+// +  " "+doM+" "+j+" "+ jm  <FONT COLOR="#FF0000" FACE="ARIAL" SIZE="7">cool</FONT>
+
+//alert(navigator.appName)
+
+//alert(tdd+tdd.length+ " "+i+" "+YL)
+
+if (tdd.length==1){
+//alert(i+"/"+YL+" "+FulY+"\n the input year \n changed  from "+today[2]+" to "+(today[2]-1))
+document.cookie=EYR-1;//alert("cookie3 "+document.cookie)
+window.history.go(0)}
+
+//xd=tdd.split(" ");//for(i=0;i<xd.length;i++){alert(xd[i])}
+
+//window.top.Frame1.document.Dtfrm.todai.value=xd[5]+" "+xd[6]+", "+xd[7]
+if(uvw){
+tduvw=uvw.split(' ')
+tdxyz=xyz.split(' ')
+//td01=xd[2]+'&nbsp;&nbsp'+xd[5]+" "+xd[6]+", "+xd[7]
+td01=tdAy+" "+tdxyz[0]+" "+tdxyz[1]+", "+tdxyz[2]
+//td13=xd[13].split('/')
+
+//td130=td13[0].split('(')
+
+window.top.Frame1.document.Dtfrm.todai.value=tdxyz[0]+" "+tdxyz[1]+", "+tdxyz[2]+" "+tdAy
+//alert(uvw)
+tds=" "+tduvw[0]+' '+tduvw[1]+', '+parseInt(tduvw[2])
+
+//newX="<HTML><HEAD><TITLE>"+xyz+"</TITLE></HEAD><BODY BGCOLOR='navy'>"
+//newX+=("<font size='5' color='white'><H1><CENTER>Winnipeg "+td01+"<I>"+tds.small()+"</I>"+"<BR> "+tdd2+tdd3+"<BR>"+ " ").fontcolor('orange')
+newX="<HTML><HEAD><TITLE>"+xyz+"</TITLE></HEAD><BODY BGCOLOR='navy'>"
+newX+=("<H3><CENTER><font size='5'>"+td01+"<I>"+tds.small()+"</I>"+"<BR> "+tdd2+tdd3+"<BR>"+ " ").fontcolor('yellow')
+newX+=("</H3> <font size=1 color='white'>(c) Rabbi Y. Charytan 770 Beecher Avenue Winnipeg Manitoba Canada R2V 4R5").sup()
+newX+="</BODY></HTML>"
+window.document.write(newX)
+
+newW="<HTML><HEAD><TITLE>"+xyz+"</TITLE></HEAD><BODY BGCOLOR='black'>"
+newW+=("<font size=1><CENTER><B>Halachik Times For "+city+"  "+td01+"<I>"+tds.small()+"</I>"+"<BR> "+tdd2+tdd3 + " ").fontcolor('orange')
+newW+=" "+cdL(eval(tduvw[2]),eval(mthN(tduvw[0])),eval(tduvw[1]))
+newW+=("</B><font size=1 color='white'> (c) Rabbi Y. Charytan <BR>770 Beecher Avenue <BR>Winnipeg Manitoba <BR>Canada R2V 4R5").sup()
+newW+="</BODY></HTML>"
+
+/*
+myWindow = window.open("", "tinyWindow2", ',width=200,height=600')
+myWindow.document.write(newW)
+myWindow.document.close()
+*/
+}/*
+if (confirm("Do You Want To See Today's Halachik Times?")){
+window.top.Frame2.document.write(newW)
+window.top.Frame2.document.close()
+window.document.close()
+}*/
+window.document.close()
+</SCRIPT>
+ 
+
+</BODY>
+</HTML>
