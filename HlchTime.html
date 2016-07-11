@@ -78,28 +78,28 @@ cndlstr+="<TABLE ALIGN=CENTER BORDER=2 WIDTH=50% BGCOLOR='black'><TR><TD ALIGN=C
 
 if(cityWkd==6){
 cndlstr+=cndl+"<BR>Shabbos Candlighting time ".fontcolor('yellow')
-cndlstr+=hmstring((XXX[1]-18/60)+timezone-12+saving).fontcolor('orange')+" pm úåøðä ú÷ìãä<HR>".fontcolor('yellow')
+cndlstr+=hmstring((XXX[1]-18/60)+timezone-12+saving).fontcolor('orange')+" pm ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½<HR>".fontcolor('yellow')
 }
 
-cndlstr+=("<font size=s>"+" Alos Hashachar "+hmstring((XXX[8])+timezone+saving)+" am úåìò <HR>").fontcolor('yellow')
+cndlstr+=("<font size=s>"+" Alos Hashachar "+hmstring((XXX[8])+timezone+saving)+" am ï¿½ï¿½ï¿½ï¿½ <HR>").fontcolor('yellow')
 //cndlstr+=("<font size=s>"+" Alos Hashachar Adh\"z 24J "+hmstring((XXX[9])+timezone+saving)+" am<HR>").fontcolor('yellow')
-cndlstr+=("<font size=s>"+" Sunrise "+hmstring((XXX[0])+timezone+saving)+" am õð<HR>").fontcolor('orange')
+cndlstr+=("<font size=s>"+" Sunrise "+hmstring((XXX[0])+timezone+saving)+" am ï¿½ï¿½<HR>").fontcolor('orange')
 
-cndlstr+=("<font size=s> Krias Shema "+hmstring((XXX[2])+timezone+saving)+" am òîù<HR>").fontcolor('yellow')
-cndlstr+=("<font size=s> Tefilah "+hmstring((XXX[3])+timezone+saving)+" am äìéôú<HR>").fontcolor('orange')
-if (erevPesach){cndlstr+=("<font size=s> Eat Chometz Until "+hmstring((XXX[3])+timezone+saving)+" am õîç úìéëà<HR>").fontcolor('red')
-cndlstr+=("<font size=s> Burn Chometz By "+hmstring((XXX[10])+timezone+saving)+" am õîç øåòéá<HR>").fontcolor('red')}
-//cndlstr+=("<font size=s> Chatzsois "+hmstring((XXX[4])+timezone+saving)+" úåöç<HR>").fontcolor('yellow')
-cndlstr+=("<font size=s> Chatzsois "+((XXX[4]+timezone+saving>12.999)?hmstring((XXX[4])+timezone+saving-12.0)+" úåöç<HR>":hmstring((XXX[4])+timezone+saving)+" úåöç<HR>")).fontcolor('yellow')
-cndlstr+=("<font size=s> Earliest Mincha "+((XXX[4]+timezone+0.5+saving>12.999)?hmstring((XXX[4])+timezone+0.5+saving-12.0)+" pm 'â äçðî<HR>":hmstring((XXX[4])+timezone+0.5+saving)+" 'â äçðî<HR>")).fontcolor('orange')
-cndlstr+=("<font size=s> Mincha Ktana "+hmstring((XXX[6])+timezone+saving-12.0)+" pm '÷ äçðî<HR>").fontcolor('yellow')
-cndlstr+=("<font size=s> Plag HaMincha "+hmstring((XXX[7])+timezone+saving-12.0)+" pm äçðîä 'ô<HR>").fontcolor('orange')
-cndlstr+=("<font size=s> Sunset "+hmstring((XXX[1])+timezone-12.0+saving)+" pm äòé÷ù<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Krias Shema "+hmstring((XXX[2])+timezone+saving)+" am ï¿½ï¿½ï¿½<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Tefilah "+hmstring((XXX[3])+timezone+saving)+" am ï¿½ï¿½ï¿½ï¿½ï¿½<HR>").fontcolor('orange')
+if (erevPesach){cndlstr+=("<font size=s> Eat Chometz Until "+hmstring((XXX[3])+timezone+saving)+" am ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½<HR>").fontcolor('red')
+cndlstr+=("<font size=s> Burn Chometz By "+hmstring((XXX[10])+timezone+saving)+" am ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½<HR>").fontcolor('red')}
+//cndlstr+=("<font size=s> Chatzsois "+hmstring((XXX[4])+timezone+saving)+" ï¿½ï¿½ï¿½ï¿½<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Chatzsois "+((XXX[4]+timezone+saving>12.999)?hmstring((XXX[4])+timezone+saving-12.0)+" ï¿½ï¿½ï¿½ï¿½<HR>":hmstring((XXX[4])+timezone+saving)+" ï¿½ï¿½ï¿½ï¿½<HR>")).fontcolor('yellow')
+cndlstr+=("<font size=s> Earliest Mincha "+((XXX[4]+timezone+0.5+saving>12.999)?hmstring((XXX[4])+timezone+0.5+saving-12.0)+" pm 'ï¿½ ï¿½ï¿½ï¿½ï¿½<HR>":hmstring((XXX[4])+timezone+0.5+saving)+" 'ï¿½ ï¿½ï¿½ï¿½ï¿½<HR>")).fontcolor('orange')
+cndlstr+=("<font size=s> Mincha Ktana "+hmstring((XXX[6])+timezone+saving-12.0)+" pm 'ï¿½ ï¿½ï¿½ï¿½ï¿½<HR>").fontcolor('yellow')
+cndlstr+=("<font size=s> Plag HaMincha "+hmstring((XXX[7])+timezone+saving-12.0)+" pm ï¿½ï¿½ï¿½ï¿½ï¿½ 'ï¿½<HR>").fontcolor('orange')
+cndlstr+=("<font size=s> Sunset "+hmstring((XXX[1])+timezone-12.0+saving)+" pm ï¿½ï¿½ï¿½ï¿½ï¿½<HR>").fontcolor('yellow')
 YYY=(SunRiseSetH(cityYear,cityMonth,cityDay,cityLa,cityLo))
-cndlstr+=("<font size=s> Tzseis Hakochovim " +hmstring((YYY[2])+timezone+saving-12.0)+" pm úàö").fontcolor('orange')
+cndlstr+=("<font size=s> Tzseis Hakochovim " +hmstring((YYY[2])+timezone+saving-12.0)+" pm ï¿½ï¿½ï¿½").fontcolor('orange')
 if(cityWkd==7){
 cndlstr+="<HR>"+"<TABLE ALIGN=CENTER WIDTH=20%><TR><TD ALIGN=RIGHT>"
-cndlstr+=hvdl+"</TD><TD ALIGN=CENTER>"+("<font size=3><B> HAVDOLO " +hmstring((YYY[2])+timezone+saving-12.0+4.0/60.0)+" pm äìãáä</B>").fontcolor('orange')
+cndlstr+=hvdl+"</TD><TD ALIGN=CENTER>"+("<font size=3><B> HAVDOLO " +hmstring((YYY[2])+timezone+saving-12.0+4.0/60.0)+" pm ï¿½ï¿½ï¿½ï¿½ï¿½</B>").fontcolor('orange')
 cndlstr+="</TD></TR></TABLE>"
 }
 
@@ -1167,7 +1167,7 @@ myWindow.document.write(newW)
 myWindow.document.close()
 */
 }
-window.top.Frame2.location.href="blank01.html"
+window.top.Frame2.location.href="Blank01.html"
 
 
 
